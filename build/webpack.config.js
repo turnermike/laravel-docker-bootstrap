@@ -24,8 +24,8 @@ var jsModules = {
 }
 
 // set image/font paths for css
-var imagePath = ifProd("'../images'", "'../images'");
-var fontPath = ifProd("'../fonts'", "'../fonts'");
+var imagePath = ifProd("'../app/public/images'", "'../app/public/images'");
+var fontPath = ifProd("'../app/public/fonts'", "'../app/public/fonts'");
 
 // debug logging
 console.log('\n-------------------------- Start Debug Output --------------------------');
@@ -39,7 +39,7 @@ console.log('--------------------------- End Debug Output ----------------------
 
 module.exports = {
 
-  context: path.resolve(__dirname, './'),                    // base dir
+  context: path.resolve(__dirname, '../app/public/'),                           // base dir
 
   devtool: ifProd('false', 'source-map'),                           // use full source map for prod, cheap and dirty for dev
 
