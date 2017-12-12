@@ -1,0 +1,39 @@
+version: '2'
+services:
+  app:                              # php 7.0.4-fpm
+    build:
+      context: ./
+      dockerfile: app.dockerfile
+    container_name: atomc-app
+    working_dir: /var/www
+    volumes:
+      - ./app:/var/www
+    environment:
+      - "DB_PORT=3306"
+      - "DB_HOST=db"
+  web:                              # nginx 1.10
+    build:
+      context: ./
+      dockerfile: web.dockerfile
+    container_name: atomc-web
+    working_dir: /var/www
+    volumes_from:
+      - app
+    ports:
+      - 80:80
+    links:
+      - db
+  db:                               # mysql 5.6
+    image: mysql:5.6
+    container_name: atomc-db
+    volumes:
+      - ./.dbdata:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=atomchockey2018"
+      - "MYSQL_USER=atomchockey"
+      - "MYSQL_PASSWORD=hEBg9W4RTXmg"
+      - "MYSQL_ROOT_PASSWORD=hpAhsfz2CqML"
+    ports:
+        - "3306:3306"
+volumes:
+  .dbdata:
