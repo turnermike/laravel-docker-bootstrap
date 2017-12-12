@@ -29,7 +29,7 @@ services:
     volumes:
       - ./.dbdata:/var/lib/mysql
     environment:
-      - "MYSQL_DATABASE=boostrap_db"
+      - "MYSQL_DATABASE=bootstrap_db"
       - "MYSQL_USER=bootstrap"
       - "MYSQL_PASSWORD=hEBg9W4RTXmg"
       - "MYSQL_ROOT_PASSWORD=hpAhsfz2CqML"

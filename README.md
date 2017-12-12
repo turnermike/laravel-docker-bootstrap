@@ -35,10 +35,17 @@ Migrate database.
 php artisan migrate
 ```
 
+Seed database.
+```
+php artisan migrate:fresh --seed
+```
+
 
 # Resources
 Links Tutorial: [https://laravel-news.com/your-first-laravel-application](https://laravel-news.com/your-first-laravel-application)
+
 Quickstart Tutorial: [https://laravel.com/docs/5.1/quickstart](https://laravel.com/docs/5.1/quickstart)
+
 Localization: [https://laravel.com/docs/5.5/localization](https://laravel.com/docs/5.5/localization)
 
 
