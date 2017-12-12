@@ -1,10 +1,11 @@
-# AtoMc Hockey Website 2018
-A custom web application developed by Cossette for McDonalds.
+# Laravel Docker Boostrap
+A custom boostrap based off of Laravel, Docker and Webpack.
 
 Using:
 
 - Docker
 - Laravel
+- Webpack
 
 
 # Project Setup
@@ -34,15 +35,11 @@ Migrate database.
 php artisan migrate
 ```
 
-Create tasks table
-```
-php artisan make:migration create_tasks_table --create=tasks
-```
 
 # Resources
-
-Tutorial: [https://laravel.com/docs/5.1/quickstart](https://laravel.com/docs/5.1/quickstart)
-
+Links Tutorial: [https://laravel-news.com/your-first-laravel-application](https://laravel-news.com/your-first-laravel-application)
+Quickstart Tutorial: [https://laravel.com/docs/5.1/quickstart](https://laravel.com/docs/5.1/quickstart)
+Localization: [https://laravel.com/docs/5.5/localization](https://laravel.com/docs/5.5/localization)
 
 
 

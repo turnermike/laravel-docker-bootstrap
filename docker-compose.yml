@@ -4,7 +4,7 @@ services:
     build:
       context: ./
       dockerfile: app.dockerfile
-    container_name: atomc-app
+    container_name: bootstrap-app
     working_dir: /var/www
     volumes:
       - ./app:/var/www
@@ -15,7 +15,7 @@ services:
     build:
       context: ./
       dockerfile: web.dockerfile
-    container_name: atomc-web
+    container_name: bootstrap-web
     working_dir: /var/www
     volumes_from:
       - app
@@ -25,12 +25,12 @@ services:
       - db
   db:                               # mysql 5.6
     image: mysql:5.6
-    container_name: atomc-db
+    container_name: bootstrap-db
     volumes:
       - ./.dbdata:/var/lib/mysql
     environment:
-      - "MYSQL_DATABASE=atomchockey2018"
-      - "MYSQL_USER=atomchockey"
+      - "MYSQL_DATABASE=boostrap_db"
+      - "MYSQL_USER=bootstrap"
       - "MYSQL_PASSWORD=hEBg9W4RTXmg"
       - "MYSQL_ROOT_PASSWORD=hpAhsfz2CqML"
     ports:
