@@ -21,6 +21,12 @@ Route::get('/', function () {
 
 });
 
+Route::get('/foundation-test', function () {
+
+    return view('foundation-test');
+
+});
+
 Route::get('/submit', function () {
 
     return view('submit');
