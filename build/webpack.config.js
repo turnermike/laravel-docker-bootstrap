@@ -48,7 +48,7 @@ module.exports = {
 
   entry: {                                                          // entry points
     app: [
-      '../app/public/js/main.js',
+      '../app/public/js/app.js',
       '../app/public/scss/app.scss'
     ],
     // vendor: ['jquery', 'sticky-js']
