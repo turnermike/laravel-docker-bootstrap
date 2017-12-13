@@ -1,6 +1,6 @@
 
 // import foundation from node_modules
-@import '../../node_modules/foundation-sites/scss/foundation';
+@import '../../../../build/node_modules/foundation-sites/scss/foundation';
 
 // load individual foundation styles
 @include foundation-global-styles;

@@ -24,13 +24,14 @@ var jsModules = {
 }
 
 // set image/font paths for css
-var imagePath = ifProd("'../app/public/images'", "'../app/public/images'");
-var fontPath = ifProd("'../app/public/fonts'", "'../app/public/fonts'");
+var imagePath = ifProd("'../output/images'", "'../images'");
+var fontPath = ifProd("'../output/fonts'", "'../fonts'");
 
 // debug logging
 console.log('\n-------------------------- Start Debug Output --------------------------');
 console.log('pkg.dependencies: ', pkg.dependencies);
 console.log('ifProd: ', ifProd('true', 'false'));
+console.log('ifNotProd: ', ifNotProd('true', 'false'));
 console.log('imagePath: ', imagePath);
 console.log('fontPath: ', fontPath);
 console.log('jsModules', jsModules);
@@ -39,7 +40,7 @@ console.log('--------------------------- End Debug Output ----------------------
 
 module.exports = {
 
-  context: path.resolve(__dirname, '../app/public/'),                           // base dir
+  context: path.resolve(__dirname, './'),                           // base dir
 
   devtool: ifProd('false', 'source-map'),                           // use full source map for prod, cheap and dirty for dev
 
@@ -47,15 +48,15 @@ module.exports = {
 
   entry: {                                                          // entry points
     app: [
-      './js/main.js',
-      './scss/app.scss'
+      '../app/public/js/main.js',
+      '../app/public/scss/app.scss'
     ],
     // vendor: ['jquery', 'sticky-js']
     vendor: Object.keys(pkg.dependencies)                           // load vendor scripts from package.json dependencies
   },
 
   output: {
-    path: path.resolve(__dirname, './output'),                      // js output dir
+    path: path.resolve(__dirname, '../app/public/output'),                      // js output dir
     filename: '[name].js',                                          // js bundled file name
     chunkFilename: '[name]-[chunkhash].js'
   },
@@ -101,7 +102,7 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [path.resolve(__dirname, './scss')],
+                includePaths: [path.resolve(__dirname, '../app/public/scss')],
                 sourceMap: ifProd(false, true),
                 sourceComments: ifProd(false, true),
                 outputStyle: ifProd('compact', 'expanded'),                             // code formating for css (compressed, expanded, nested, compact)
@@ -112,27 +113,73 @@ module.exports = {
         })
       },
 
-      // FONTS
-      {
+      // FONTS (PRODUCTION)
+      // Will generate new files and copy to app/public/output/fonts/
+      ifProd({
         test: /\.(woff|woff2|ttf|eot|svg)$/,
-        include: [path.resolve(__dirname, './fonts')],
+        include: [path.resolve(__dirname, '../app/public/fonts')],
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[ext]',
-          // limit: 100000
+          limit: 100000
         }
-      },
+      }),
 
-      // IMAGES
-      {
+      // FONTS (DEV)
+      // Does not generate new files.
+      ifNotProd({
+        test: /\.(woff|woff2|ttf|eot|svg)$/,
+        include: [path.resolve(__dirname, '../app/public/fonts')],
+        exclude: /node_modules/,
+        loader: 'url-loader'
+      }),
+
+      // IMAGES (PRODUCTION)
+      ifProd({
         test: /\.(png|svg|jpg|gif)$/,
-        include: [path.resolve(__dirname, './images')],
-        loader: 'file-loader',
-        options: {
-          name: 'images/[name].[ext]',
-          // limit: 100000
-        }
-      },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name].[ext]',
+              limit: 100000
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: false,
+              bypassOnDebug: true,
+              gifsicle: {
+                interlaced: false
+              },
+              optipng: {
+                optimizationLevel: 7
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              }
+            }
+          }
+        ]
+      }),
+
+      // IMAGES (DEV)
+      ifNotProd({
+        test: /\.(png|svg|jpg|gif)$/,
+        include: [path.resolve(__dirname, '../app/public/images')],
+        exclude: /node_modules/,
+        loader: 'url-loader',
+        // options: {
+        //   name: 'images/[name].[ext]',
+        //   // limit: 100000
+        // }
+      }),
 
       // JS/ES6
       {
@@ -141,7 +188,7 @@ module.exports = {
           path.resolve(__dirname, './node-modules')
         ],
         include: [
-          path.resolve(__dirname, './js')
+          path.resolve(__dirname, '../app/public/js')
         ],
         use: [
           {
