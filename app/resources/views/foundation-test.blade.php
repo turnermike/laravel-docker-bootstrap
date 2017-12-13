@@ -1,17 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-<!doctype html>
-<html class="no-js" lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation 6 Webpack Bootstrap</title>
-    <link rel="stylesheet" href="output/app.css" />
-  </head>
-  <body>
-
     <header>
 
       <p>header</p>
@@ -243,13 +232,5 @@
       <p>footer</p>
 
     </footer>
-
-    <input type="hidden" id="txtDebug" value="true" />
-
-    <script src="output/vendor.js"></script>
-    <script src="output/app.js"></script>
-
-  </body>
-</html>
 
 @endsection

@@ -11,7 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('laravel-files/css/laravel-supplied.css') }}" rel="stylesheet">
+    <link href="laravel-files/css/laravel-supplied.css" rel="stylesheet">
+    <link href="output/app.css" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -75,6 +77,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('laravel-files/js/laravel-supplied.js') }}"></script>
+    <script src="laravel-files/js/laravel-supplied.js"></script>
+    <script src="output/vendor.js"></script>
+    <script src="output/app.js"></script>
+
 </body>
 </html>
