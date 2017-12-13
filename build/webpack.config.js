@@ -24,8 +24,8 @@ var jsModules = {
 }
 
 // set image/font paths for css
-var imagePath = ifProd("'../output/images'", "'../images'");
-var fontPath = ifProd("'../output/fonts'", "'../fonts'");
+var imagePath = ifProd("'../output/images'", "'../../../resources/assets/images'");
+var fontPath = ifProd("'../output/fonts'", "'../../../resources/assets/fonts'");
 
 // debug logging
 console.log('\n-------------------------- Start Debug Output --------------------------');
@@ -48,8 +48,8 @@ module.exports = {
 
   entry: {                                                          // entry points
     app: [
-      '../app/public/js/app.js',
-      '../app/public/scss/app.scss'
+      '../app/resources/assets/js/app.js',
+      '../app/resources/assets/scss/app.scss'
     ],
     // vendor: ['jquery', 'sticky-js']
     vendor: Object.keys(pkg.dependencies)                           // load vendor scripts from package.json dependencies
@@ -102,7 +102,7 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [path.resolve(__dirname, '../app/public/scss')],
+                includePaths: [path.resolve(__dirname, '../app/resources/assets/scss')],
                 sourceMap: ifProd(false, true),
                 sourceComments: ifProd(false, true),
                 outputStyle: ifProd('compact', 'expanded'),                             // code formating for css (compressed, expanded, nested, compact)
@@ -117,7 +117,7 @@ module.exports = {
       // Will generate new files and copy to app/public/output/fonts/
       ifProd({
         test: /\.(woff|woff2|ttf|eot|svg)$/,
-        include: [path.resolve(__dirname, '../app/public/fonts')],
+        include: [path.resolve(__dirname, '../app/resources/assets/fonts')],
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[ext]',
@@ -129,7 +129,7 @@ module.exports = {
       // Does not generate new files.
       ifNotProd({
         test: /\.(woff|woff2|ttf|eot|svg)$/,
-        include: [path.resolve(__dirname, '../app/public/fonts')],
+        include: [path.resolve(__dirname, '../app/resources/assets/fonts')],
         exclude: /node_modules/,
         loader: 'url-loader'
       }),
@@ -172,7 +172,7 @@ module.exports = {
       // IMAGES (DEV)
       ifNotProd({
         test: /\.(png|svg|jpg|gif)$/,
-        include: [path.resolve(__dirname, '../app/public/images')],
+        include: [path.resolve(__dirname, '../app/resources/assets/images')],
         exclude: /node_modules/,
         loader: 'url-loader',
         // options: {
@@ -188,7 +188,7 @@ module.exports = {
           path.resolve(__dirname, './node-modules')
         ],
         include: [
-          path.resolve(__dirname, '../app/public/js')
+          path.resolve(__dirname, '../app/resources/assets/js')
         ],
         use: [
           {
