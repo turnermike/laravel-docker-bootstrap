@@ -14,7 +14,7 @@ return [
     */
 
     'page_title' => 'Home',
-    'title' => 'This is a en-CA Title',
+    'title' => 'This is a en-QC Title',
     'para' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
 
 ];

@@ -31,7 +31,7 @@ class StaticController extends Controller
 
         $links = \App\Link::all();
 
-        return view('welcome', [ 'links' => $links ])
+        return view('home', [ 'links' => $links ])
             ->with('locale', $locale);
 
     }
@@ -52,6 +52,21 @@ class StaticController extends Controller
 
     }
 
+
+    /**
+     * Display the submit view
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function submit(Request $request, $locale = null)
+    {
+
+        App::setLocale($locale);
+
+        return view('submit')
+            ->with('locale', $locale);
+
+    }
 
 
 }

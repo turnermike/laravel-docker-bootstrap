@@ -1,9 +1,13 @@
 @extends('layouts.app')
 @section('content')
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="/laravel-files/css/laravel-supplied.css" rel="stylesheet">
+
     <div class="container">
         <div class="row">
             <h1>Submit a link</h1>
-            <form action="/submit" method="post">
+            <form action="/{{ $locale }}/submit" method="post">
                 @if ($errors->any())
                     <div class="alert alert-danger" role="alert">
                         Please fix the following errors
@@ -36,4 +40,7 @@
             </form>
         </div>
     </div>
+
+    <script src="/laravel-files/js/laravel-supplied.js"></script>
+
 @endsection

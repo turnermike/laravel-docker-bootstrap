@@ -11,7 +11,6 @@
     <title>{{ (!empty($title) ? $title : 'Fallback Page Title Here') }}</title>
 
     <!-- Styles -->
-    <link href="laravel-files/css/laravel-supplied.css" rel="stylesheet">
     <link href="/output/app.css" rel="stylesheet">
 
 </head>
@@ -77,7 +76,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="laravel-files/js/laravel-supplied.js"></script>
     <script src="/output/vendor.js"></script>
     <script src="/output/app.js"></script>
 
