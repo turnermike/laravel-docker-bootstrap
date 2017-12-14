@@ -20,47 +20,4 @@ Route::get('/{locale}/foundationtest', ['as' => 'foundationtest', 'uses' => 'Sta
 Route::get('/{locale}/submit', ['as' => 'submit', 'uses' => 'StaticController@submit']);
 Route::post('/{locale}/submit', ['as' => 'submit', 'uses' => 'FormController@submit']);
 
-
-// Route::get('/submit', function () {
-
-//     return view('submit');
-
-// });
-
-// Route::post('/submit', function (Request $request) {
-
-//     $data = $request->validate([
-//         'title' => 'required|max:255',
-//         'url' => 'required|url|max:255',
-//         'description' => 'required|max:255'
-//     ]);
-
-//     // using tap method
-//     /*
-//     $link = tap(new App\Link($data))->save();
-//     return redirect('/');
-//     */
-
-//     // not using tap method
-//     /*
-//     $link = new App\Link($data);
-//     $link->save();
-//     // return $link;
-//     return redirect('/');
-//     */
-
-//     // prevent mass-assignment
-//     $link = new App\Link;
-//     $link->title = $data['title'];
-//     $link->url = $data['url'];
-//     $link->description = $data['description'];
-//     $link->save();
-//     return redirect('/');
-
-
-// });
-
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
