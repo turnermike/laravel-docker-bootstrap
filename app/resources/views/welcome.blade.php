@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ (!empty($title) ? $title : 'Fallback Page Title Here') }}</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -64,7 +64,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="{{ (!empty($bodyclass) ? $bodyclass : 'page') }}">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -79,7 +79,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <h1>{{ Lang::get('landing-page.title') }}</h1>
+                    <p>{{ Lang::get('landing-page.para') }}</p>
                 </div>
 
                 <div class="links"><a href="/submit">Submit a Link</a><br /><br /></div>

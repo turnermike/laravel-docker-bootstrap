@@ -13,19 +13,21 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
+// home/landing page
+Route::get('/', ['as' => 'index', 'uses' => 'StaticController@index']);
+Route::get('/{locale}', ['as' => 'index', 'uses' => 'StaticController@index']);
+Route::get('/{locale}/foundationtest', ['as' => 'foundationtest', 'uses' => 'StaticController@foundationtest']);
 
-    $links = \App\Link::all();
+// Route::get('/', function () {
 
-    return view('welcome', [ 'links' => $links ]);
+//     $links = \App\Link::all();
 
-});
+//     return view('welcome', [ 'links' => $links ]);
 
-Route::get('/foundation-test', function () {
+// });
 
-    return view('foundation-test');
+Route::get('/foundationtest/', ['as' => 'foundationtest', 'uses' => 'StaticController@foundationtest']);
 
-});
 
 Route::get('/submit', function () {
 

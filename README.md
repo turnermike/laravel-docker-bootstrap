@@ -3,10 +3,14 @@ A custom boostrap based off of Laravel, Docker and Webpack.
 
 Using:
 
-- Docker
-- Laravel
-- Webpack
+- Docker (Docker Compose 2)
+- Laravel 5.5.25
+- Foundation 6
+- Webpack 4
 
+# Requirements
+
+- Node.js
 
 # Project Setup
 
@@ -40,6 +44,26 @@ Seed database.
 php artisan migrate:fresh --seed
 ```
 
+## Webpack
+The task running in use. Used for SASS/JS autoprefixing, source maps and minification.
+
+### Development
+Watches files for changes. Uses source maps and expanded code.
+```
+npm run start
+```
+
+### Dev Build
+A single run build using source maps and expanded code.
+```
+npm run build:dev
+```
+
+### Production build
+A single run build without source maps or comments and minifies.
+```
+npm run build:prod
+```
 
 # Resources
 Links Tutorial: [https://laravel-news.com/your-first-laravel-application](https://laravel-news.com/your-first-laravel-application)

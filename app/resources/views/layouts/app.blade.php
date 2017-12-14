@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ App::getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +8,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ (!empty($title) ? $title : 'Fallback Page Title Here') }}</title>
 
     <!-- Styles -->
     <link href="laravel-files/css/laravel-supplied.css" rel="stylesheet">
-    <link href="output/app.css" rel="stylesheet">
+    <link href="/output/app.css" rel="stylesheet">
 
 </head>
-<body>
+<body class="{{ (!empty($bodyclass) ? $bodyclass : 'page') }}">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -78,8 +78,8 @@
 
     <!-- Scripts -->
     <script src="laravel-files/js/laravel-supplied.js"></script>
-    <script src="output/vendor.js"></script>
-    <script src="output/app.js"></script>
+    <script src="/output/vendor.js"></script>
+    <script src="/output/app.js"></script>
 
 </body>
 </html>

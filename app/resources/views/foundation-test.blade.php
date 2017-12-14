@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => 'Foundation Test', 'bodyclass' => 'foundationtest'])
 @section('content')
 
     <header>
@@ -10,7 +10,9 @@
     <div class="grid-container">
       <div class="grid-x grid-padding-x">
         <div class="large-12 cell">
-          <h1>Welcome to Foundation</h1>
+        <h1>{{ Lang::get('landing-page.title') }}</h1>
+        <p>{{ Lang::get('landing-page.para') }}</p>
+
         </div>
       </div>
 
