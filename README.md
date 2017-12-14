@@ -1,5 +1,7 @@
 # Laravel Docker Boostrap
-A custom boostrap based off of Laravel, Docker and Webpack.
+A custom boostrap based off of Laravel, Docker, Foundation and Webpack. Includes a basic
+demo form that submits links to the database and displays them on the Landing page. Support
+for locales has also been configured.
 
 Using:
 
@@ -11,6 +13,7 @@ Using:
 # Requirements
 
 - Node.js
+- Docker
 
 # Project Setup
 
