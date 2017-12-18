@@ -29,7 +29,7 @@ services:
     volumes:
       - ./.dbdata:/var/lib/mysql
     environment:
-      - "MYSQL_DATABASE=atomc_db"
+      - "MYSQL_DATABASE=atomc_hockey_2018"
       - "MYSQL_USER=atomc"
       - "MYSQL_PASSWORD=F6SXZ5GXDgqn"
       - "MYSQL_ROOT_PASSWORD=as7c5Ge64QrK"

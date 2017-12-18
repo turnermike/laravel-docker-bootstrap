@@ -81,12 +81,15 @@ Localization: [https://laravel.com/docs/5.5/localization](https://laravel.com/do
 
 
 
-# Quick Steps
+# New Project Setup - Quick Steps
 1. docker-compose build
 2. docker-compose up -d
 3. composer install
-4. cd app
+4. cd deploy/app
 5. cp .env.example .env
 6. php artisan key:generate
 7. populate db creds in .env (look in docker-compose.yml)
 8. php artisan migrate:fresh --seed
+9. cd deploy/build
+10. npm install
+
