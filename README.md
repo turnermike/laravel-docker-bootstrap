@@ -37,6 +37,11 @@ cd app
 composer install
 ```
 
+Generate a new app_key.
+```
+php artisan key:generate
+```
+
 Migrate database.
 ```
 php artisan migrate
