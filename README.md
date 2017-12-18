@@ -1,7 +1,5 @@
-# Laravel Docker Boostrap
-A custom boostrap based off of Laravel, Docker, Foundation and Webpack. Includes a basic
-demo form that submits links to the database and displays them on the Landing page. Support
-for locales has also been configured.
+# McDonald's AtoMc Hockey
+A custom Laravel application developed by Cossette for McDonald's Canada.
 
 Using:
 
