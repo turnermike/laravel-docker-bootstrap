@@ -92,3 +92,5 @@ Localization: [https://laravel.com/docs/5.5/localization](https://laravel.com/do
 6. php artisan key:generate
 7. populate db creds in .env (look in docker-compose.yml)
 8. php artisan migrate:fresh --seed
+9. cd build
+10 npm install
