@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Landing/Home Page Language Lines
+    | Header Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used by the paginator library to build
@@ -13,9 +13,12 @@ return [
     |
     */
 
-    'user_menu_item_1' => 'Quebec Équipe McDoMD',
-    'user_menu_item_2' => 'FR',
-    'user_menu_item_3' => 'Sign In / Create Account',
-    'user_menu_item_4' => '<div class="fi-magnifying-glass"></div>'
+    'user_menu_item_1'          => 'Quebec Équipe McDoMD',
+    'user_menu_item_1_target'   => '/en-QC',
+    'user_menu_item_2'          => 'FR',
+    'user_menu_item_2_target'   => '/fr-CA',
+    'user_menu_item_3'          => 'Sign In / Create Account',
+    'user_menu_item_3_target'   => '/{{ $locale }}/signin',
+    'user_menu_item_4'          => 'Search'
 
 ];
