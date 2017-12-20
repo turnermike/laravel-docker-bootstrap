@@ -1,5 +1,7 @@
 /**
- * _header.scss
+ * _base.scss
+ *
+ * Tag defaults
  *
  */
 
@@ -7,30 +9,31 @@
 /* ==========================================================================
    Small Up
    ========================================================================== */
-header{
-  font-family: 'akzidenz-grotesk_bqregular';
-  background:pink;
 
-  .logo{
-    display: block;
-    margin: 10px 0;
-    width: 220px;
-    height: 52px;
-    background: url(#{$image-path}/logo-mcdonalds-atomc.png) no-repeat;
-    background-size: cover;
-    text-indent: -9999rem;
-  }
-
-  .user-menu{
-    list-style: none;
-    font-size: 0.875rem;
-  }
-
-  .site-menu{
-    font-size: 1.125rem;
-  }
-
+body{
+  color: #999;
+  background: #000;
 }
+
+a{
+  color: #999;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0 0 40px 0;
+  font-size: 1rem;
+}
+
+ul, ol{
+  margin: 0;
+  padding: 0;
+}
+
+.grid-container{
+  max-width: $grid-container;
+}
+
 
 
 
@@ -38,9 +41,7 @@ header{
     Medium Up
    ========================================================================== */
 @media #{$medium-up} {
-  header{
-    background: black(0.5);
-  }
+
 }
 
 
@@ -48,8 +49,6 @@ header{
     Large Up
    ========================================================================== */
 @media #{$large-up} {
-  header{
-    background: black(0.1);
-  }
+
 }
 

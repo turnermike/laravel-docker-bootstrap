@@ -1,9 +1,5 @@
-@extends('layouts.app', ['title' => 'Foundation Test - ' . Lang::get('landing-page.page_title'), 'bodyclass' => 'home'])
+@extends('layouts.app', ['title' => Lang::get('landing-page.page_title'), 'bodyclass' => 'home'])
 @section('content')
-
-
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link href="/laravel-files/css/laravel-supplied.css" rel="stylesheet">
 
         <div class="flex-center position-ref full-height">
 
@@ -24,7 +20,5 @@
 
             </div>
         </div>
-
-        <script src="/laravel-files/js/laravel-supplied.js"></script>
 
 @endsection

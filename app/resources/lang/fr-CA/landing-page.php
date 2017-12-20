@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'page_title' => 'Home',
+    'page_title' => 'Quebec &Eacute;quipe McDoMD - Home',
     'title' => 'This is a fr-CA Title',
     'para' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
 

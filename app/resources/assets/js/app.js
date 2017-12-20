@@ -21,7 +21,7 @@ $(document).ready(function(){
 
   // try{
 
-    if(window.location.href.indexOf('0.0.0.0') > 0){
+    if(window.location.href.indexOf('atomc.test') > 0){
       initDevDebug();
     }
 
@@ -69,13 +69,16 @@ function initDevDebug() {
 
   console.log('initDevDebug');
 
-  $('body', 'html').append('<div id="debug-message"></div>');
-  $('#debug-message').append('<p class="small">small</p><p class="medium">medium</p><p class="large">large</p><p class="exlarge">extra large</p>');
-  $(window).resize(function () {
-      $('#debug-message').empty();
+  if($('#txtDebug').val() == 'true') {
+    $('body', 'html').append('<div id="debug-message"></div>');
       $('#debug-message').append('<p class="small">small</p><p class="medium">medium</p><p class="large">large</p><p class="exlarge">extra large</p>');
-      $('#debug-message').append('<p>width: ' + window.innerWidth + '</p>');
-  });
+      $(window).resize(function () {
+          $('#debug-message').empty();
+          $('#debug-message').append('<p class="small">small</p><p class="medium">medium</p><p class="large">large</p><p class="exlarge">extra large</p>');
+          $('#debug-message').append('<p>width: ' + window.innerWidth + '</p>');
+      });
+  }
+
 
 } // initDebDebug
 

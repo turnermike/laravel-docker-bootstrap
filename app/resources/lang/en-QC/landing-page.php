@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'page_title' => 'Home',
+    'page_title' => 'McDonald\'s AtoMc Hockey - Home',
     'title' => 'This is a en-QC Title',
     'para' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
 

@@ -1,5 +1,7 @@
 <?php
 
+$locale = Lang::locale();
+
 return [
 
     /*
@@ -13,9 +15,21 @@ return [
     |
     */
 
-    'user_menu_item_1' => 'Quebec Équipe McDoMD',
-    'user_menu_item_2' => 'FR',
-    'user_menu_item_3' => 'Sign In / Create Account',
-    'user_menu_item_4' => '<div class="fi-magnifying-glass"></div>'
+    'logo_text'                 => 'McDonald\'s AtoMc Hockey',
+
+    'user_menu_item_1'          => 'Quebec &Eacute;quipe McDo<sup>MD</sup>',
+    'user_menu_item_1_target'   => '/en-CA',
+    'user_menu_item_2'          => 'FR',
+    'user_menu_item_2_target'   => '/fr-QC',
+    'user_menu_item_3'          => 'Sign In / Create Account',
+    'user_menu_item_3_target'   => '/'.$locale.'/signin',
+    'user_menu_item_4'          => 'Search',
+
+    'site_menu_item_1'          => 'Home',
+    'site_menu_item_1_target'   => '/',
+    'site_menu_item_2'          => 'Program Overview',
+    'site_menu_item_2_target'   => '/'.$locale.'/program-overview',
+    'site_menu_item_3'          => 'Contact',
+    'site_menu_item_3_target'   => '/'.$locale.'/contact',
 
 ];
