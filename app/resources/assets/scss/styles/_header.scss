@@ -7,9 +7,27 @@
 /* ==========================================================================
    Small Up
    ========================================================================== */
+
+
+/* foundation styles/overrides */
+
+.menu{
+  a{
+    padding: 0;
+  }
+}
+
+.menu-icon{
+  vertical-align: bottom;
+}
+
+.off-canvas{
+  background: #000;
+}
+
+
 header{
   font-family: 'akzidenz-grotesk_bqregular';
-
 
   .logo{
     display: block;
@@ -22,12 +40,25 @@ header{
   }
 
   .user-menu{
+    margin-top: 20px;
     list-style: none;
     font-size: 0.875rem;
+
+    .fi-magnifying-glass{
+      // text-indent: -9999rem;
+    }
+    li{
+      margin-bottom: 10px;
+    }
   }
 
   .site-menu{
+    margin-top: 20px;
     font-size: 1.125rem;
+
+    li{
+      margin-bottom: 20px;
+    }
   }
 
 }
@@ -38,9 +69,7 @@ header{
     Medium Up
    ========================================================================== */
 @media #{$medium-up} {
-  header{
-    background: black(0.5);
-  }
+
 }
 
 
@@ -48,8 +77,6 @@ header{
     Large Up
    ========================================================================== */
 @media #{$large-up} {
-  header{
-    background: black(0.1);
-  }
+
 }
 

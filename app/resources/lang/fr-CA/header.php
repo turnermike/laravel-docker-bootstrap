@@ -23,7 +23,6 @@ return [
     'user_menu_item_2_target'   => '/en-CA',
     'user_menu_item_3'          => 'FR - Sign In / Create Account',
     'user_menu_item_3_target'   => '/'.$locale.'/signin',
-    'user_menu_item_4'          => 'Search',
 
     'site_menu_item_1'          => 'FR - Home',
     'site_menu_item_1_target'   => '/',
