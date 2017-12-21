@@ -16,42 +16,46 @@
 </head>
 <body class="{{ (!empty($bodyclass) ? $bodyclass : 'page') }}">
 
-    <div class="grid-container">
+
+  <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
+
+    <!-- Close button -->
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <!-- Menu -->
+    <ul class="vertical menu">
+      <li><a href="#">Foundation</a></li>
+      <li><a href="#">Dot</a></li>
+      <li><a href="#">ZURB</a></li>
+      <li><a href="#">Com</a></li>
+      <li><a href="#">Slash</a></li>
+      <li><a href="#">Sites</a></li>
+    </ul>
+
+  </div>
+
+  <div class="off-canvas-content" data-off-canvas-content>
+    <!-- Your page content lives here -->
+
+
+    <button type="button" class="button" data-toggle="offCanvas">Open Left</button>
+
+    page content
+  </div>
+
+
+
+
+{{--     <div class="grid-container">
 
         <header class="grid-x">
+
             <div class="small-12 medium-6 cell">
                 <a href="/{{$locale}}/" class="logo">{{ Lang::get('header.logo_text' )}}</a>
             </div>
 
-<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-  <button class="menu-icon" type="button" data-toggle="example-menu"></button>
-  <div class="title-bar-title">Menu</div>
-</div>
-
-<div class="top-bar" id="example-menu">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text"></li>
-      <!--
-      <li>
-        <a href="#">One</a>
-        <ul class="menu vertical">
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Two</a></li>
-      <li><a href="#">Three</a></li>
-  -->
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    right
-  </div>
-</div>
-
-            <!--
             <div class="small-12 medium-6 cell">
                 <ul class="user-menu menu">
                     <li><a href="{{ Lang::get('header.user_menu_item_1_target') }}">{!! Lang::get('header.user_menu_item_1') !!}</a></li>
@@ -65,13 +69,14 @@
                     <li><a href="{{ Lang::get('header.site_menu_item_3_target') }}">{{ Lang::get('header.site_menu_item_3') }}</a></li>
                 </ul>
             </div>
-        -->
+
         </header>
 
-    </div>
+    </div> --}}
+
     <!-- .grid-container -->
 
-    {{-- @yield('content') --}}
+    @yield('content')
 
     {{-- <input type="hidden" id="txtDebug" value="true" /> --}}
 

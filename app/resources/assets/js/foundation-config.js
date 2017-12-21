@@ -23,7 +23,7 @@ require('../../../../build/node_modules/foundation-sites/dist/js/plugins/foundat
 // require('../../../../build/node_modules/foundation-sites/dist/js/plugins/foundation.equalizer');
 // require('../../../../build/node_modules/foundation-sites/dist/js/plugins/foundation.interchange');
 // require('../../../../build/node_modules/foundation-sites/dist/js/plugins/foundation.magellan');
-// require('../../../../build/node_modules/foundation-sites/dist/js/plugins/foundation.offcanvas');
+require('../../../../build/node_modules/foundation-sites/dist/js/plugins/foundation.offcanvas');
 // require('../../../../build/node_modules/foundation-sites/dist/js/plugins/foundation.orbit');
 // require('../../../../build/node_modules/foundation-sites/dist/js/plugins/foundation.responsiveAccordionTabs');
 require('../../../../build/node_modules/foundation-sites/dist/js/plugins/foundation.responsiveMenu');
