@@ -6,7 +6,6 @@
 
 // import modules
 import { foundation } from './foundation-config.js';                         // individual foundation scripts can be loaded here
-import truncatise from 'truncatise';
 
 var windowSize;
 
