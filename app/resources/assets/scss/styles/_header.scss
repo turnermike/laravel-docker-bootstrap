@@ -25,28 +25,30 @@
   background: #000;
 }
 
+.js-off-canvas-overlay{
+  background: #292929;
+}
+
+.js-off-canvas-overlay.is-visible{
+  opacity: 0.7;
+}
 
 header{
   font-family: 'akzidenz-grotesk_bqregular';
 
   .logo{
     display: block;
-    margin: 10px 0;
-    width: 220px;
-    height: 52px;
+    width: 171px;
+    height: 40px;
     background: url(#{$image-path}/logo-mcdonalds-atomc.png) no-repeat;
     background-size: cover;
     text-indent: -9999rem;
   }
 
   .user-menu{
-    margin-top: 20px;
     list-style: none;
     font-size: 0.875rem;
 
-    .fi-magnifying-glass{
-      // text-indent: -9999rem;
-    }
     li{
       margin-bottom: 10px;
     }
@@ -59,6 +61,7 @@ header{
     li{
       margin-bottom: 20px;
     }
+
   }
 
 }
@@ -69,6 +72,39 @@ header{
     Medium Up
    ========================================================================== */
 @media #{$medium-up} {
+
+  header{
+
+    .user-menu{
+      // background:pink;
+      position: absolute;
+      top: 20px;
+      left: 0;
+
+
+      li{
+        margin: 0 10px 0 0;
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
+
+    .site-menu{
+      // background:pink;
+      position: absolute;
+      top: 30px;
+      left: 0;
+
+      li{
+        margin: 0 10px 0 0;
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
+
+  }
 
 }
 

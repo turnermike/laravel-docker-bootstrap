@@ -21,9 +21,9 @@ $(document).ready(function(){
 
   // try{
 
-    window.setTimeout(function() {
-      $('.menu-icon').trigger('click');
-    }, 1);
+    // window.setTimeout(function() {
+    //   $('.menu-icon').trigger('click');
+    // }, 1);
 
 
     if(window.location.href.indexOf('atomc.test') > 0){

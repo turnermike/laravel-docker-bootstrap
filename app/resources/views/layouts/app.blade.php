@@ -20,23 +20,23 @@
 
         <div class="grid-container">
 
-            <header class="grid-x">
+            <header class="grid-x grid-margin-x">
 
                 <div class="small-12 medium-6 cell hide-for-small-only">
                     <a href="/{{$locale}}/" class="logo">{{ Lang::get('header.logo_text' )}}</a>
                 </div>
 
-                <div class="small-12 medium-6 cell">
-                    <ul class="user-menu vertical medium-horizontal menu">
-                        <li><a href="{{ Lang::get('header.user_menu_item_1_target') }}">{!! Lang::get('header.user_menu_item_1') !!}</a></li>
-                        <li><a href="{{ Lang::get('header.user_menu_item_2_target') }}">{{ Lang::get('header.user_menu_item_2') }}</a></li>
-                        <li><a href="{{ Lang::get('header.user_menu_item_3_target') }}">{{ Lang::get('header.user_menu_item_3') }}</a></li>
-                        <li><a href="#" class="fi-magnifying-glass"></a></li>
-                    </ul>
+                <div class="small-12 medium-6 cell relative">
                     <ul class="site-menu vertical medium-horizontal menu">
                         <li><a href="{{ Lang::get('header.site_menu_item_1_target') }}">{{ Lang::get('header.site_menu_item_1') }}</a></li>
                         <li><a href="{{ Lang::get('header.site_menu_item_2_target') }}">{{ Lang::get('header.site_menu_item_2') }}</a></li>
                         <li><a href="{{ Lang::get('header.site_menu_item_3_target') }}">{{ Lang::get('header.site_menu_item_3') }}</a></li>
+                    </ul>
+                    <ul class="user-menu vertical medium-horizontal menu">
+                        <li><a href="{{ Lang::get('header.user_menu_item_1_target') }}">{!! Lang::get('header.user_menu_item_1') !!}</a></li>
+                        <li><a href="{{ Lang::get('header.user_menu_item_2_target') }}">{{ Lang::get('header.user_menu_item_2') }}</a></li>
+                        <li><a href="{{ Lang::get('header.user_menu_item_3_target') }}">{{ Lang::get('header.user_menu_item_3') }}</a></li>
+                        {{-- <li><a href="#" class="fi-magnifying-glass"></a></li> --}}
                     </ul>
                 </div>
 
