@@ -17,42 +17,17 @@
 <body class="{{ (!empty($bodyclass) ? $bodyclass : 'page') }}">
 
 
-  <div class="off-canvas position-left" id="offCanvas" data-off-canvas>
-
-    <!-- Close button -->
-    <button class="close-button" aria-label="Close menu" type="button" data-close>
-      <span aria-hidden="true">&times;</span>
-    </button>
-
-    <!-- Menu -->
-    <ul class="vertical menu">
-      <li><a href="#">Foundation</a></li>
-      <li><a href="#">Dot</a></li>
-      <li><a href="#">ZURB</a></li>
-      <li><a href="#">Com</a></li>
-      <li><a href="#">Slash</a></li>
-      <li><a href="#">Sites</a></li>
-    </ul>
-
-  </div>
-
-  <div class="off-canvas-content" data-off-canvas-content>
-    <!-- Your page content lives here -->
-
-
-    <button type="button" class="button" data-toggle="offCanvas">Open Left</button>
-
-    page content
-  </div>
 
 
 
 
-{{--     <div class="grid-container">
+    <div class="off-canvas in-canvas-for-medium position-right" id="offCanvas" data-off-canvas>
 
-        <header class="grid-x">
+        <div class="grid-container">
 
-            <div class="small-12 medium-6 cell">
+            <header class="grid-x">
+
+            <div class="small-12 medium-6 cell hide-for-small-only">
                 <a href="/{{$locale}}/" class="logo">{{ Lang::get('header.logo_text' )}}</a>
             </div>
 
@@ -70,13 +45,32 @@
                 </ul>
             </div>
 
-        </header>
+            </header>
 
-    </div> --}}
+        </div>
+
+    </div>
+
+  <div class="off-canvas-content" data-off-canvas-content>
+
+    <header class="title-bar hide-for-medium">
+        <div class="title-bar-left">
+            <a href="/{{$locale}}/" class="logo">{{ Lang::get('header.logo_text' )}}</a>
+            {{-- <span class="title-bar-title"></span> --}}
+        </div>
+        <div class="title-bar-right">
+            <button class="menu-icon" type="button" data-open="offCanvas"></button>
+        </div>
+    </header>
+
+    @yield('content')
+
+  </div>
+
 
     <!-- .grid-container -->
 
-    @yield('content')
+
 
     {{-- <input type="hidden" id="txtDebug" value="true" /> --}}
 
