@@ -24,8 +24,8 @@ var jsModules = {
 }
 
 // set image/font paths for css
-var imagePath = ifProd("'../output/images'", "'../../../resources/assets/images'");
-var fontPath = ifProd("'../output/fonts'", "'../../../resources/assets/fonts'");
+var imagePath = ifProd("'../../../public/images'", "'../../../public/images'");
+var fontPath = ifProd("'../../../public/fonts'", "'../../../public/fonts'");
 
 // debug logging
 console.log('\n-------------------------- Start Debug Output --------------------------');
@@ -117,7 +117,7 @@ module.exports = {
       // Will generate new files and copy to app/public/output/fonts/
       ifProd({
         test: /\.(woff|woff2|ttf|eot|svg)$/,
-        include: [path.resolve(__dirname, '../app/resources/assets/fonts')],
+        include: [path.resolve(__dirname, '../app/public/fonts')],
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[ext]',
@@ -129,7 +129,7 @@ module.exports = {
       // Does not generate new files.
       ifNotProd({
         test: /\.(woff|woff2|ttf|eot|svg)$/,
-        include: [path.resolve(__dirname, '../app/resources/assets/fonts')],
+        include: [path.resolve(__dirname, '../app/public/fonts')],
         exclude: /node_modules/,
         loader: 'url-loader'
       }),
@@ -172,7 +172,7 @@ module.exports = {
       // IMAGES (DEV)
       ifNotProd({
         test: /\.(png|svg|jpg|gif)$/,
-        include: [path.resolve(__dirname, '../app/resources/assets/images')],
+        include: [path.resolve(__dirname, '../app/public/images')],
         exclude: /node_modules/,
         loader: 'url-loader',
         // options: {
