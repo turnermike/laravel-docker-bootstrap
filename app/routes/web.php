@@ -16,8 +16,11 @@ use Illuminate\Http\Request;
 // home/landing page
 Route::get('/', ['as' => 'index', 'uses' => 'StaticController@index']);
 Route::get('/{locale}', ['as' => 'index', 'uses' => 'StaticController@index']);
+Route::get('/{locale}/program-overview', ['as' => 'program-overview', 'uses' => 'StaticController@programOverview']);
+Route::get('/{locale}/contact', ['as' => 'contact', 'uses' => 'StaticController@contact']);
 Route::get('/{locale}/foundationtest', ['as' => 'foundationtest', 'uses' => 'StaticController@foundationtest']);
 Route::get('/{locale}/submit', ['as' => 'submit', 'uses' => 'StaticController@submit']);
+
 Route::post('/{locale}/submit', ['as' => 'submit', 'uses' => 'FormController@submit']);
 
 Auth::routes();

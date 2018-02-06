@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Landing/Home Page Language Lines
+    | Program Overview Page Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used by the paginator library to build
@@ -13,8 +13,6 @@ return [
     |
     */
 
-    'page_title' => 'Quebec &Eacute;quipe McDoMD - Home',
-    'title' => 'This is a fr-CA Title',
-    'para' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+    'page_title' => 'FR - McDonald\'s AtoMc Hockey - Program Overview',
 
 ];

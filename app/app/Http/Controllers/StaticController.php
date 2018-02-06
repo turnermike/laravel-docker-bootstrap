@@ -38,6 +38,38 @@ class StaticController extends Controller
 
 
     /**
+     * Display the program overview view
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function programOverview(Request $request, $locale = null)
+    {
+
+        App::setLocale($locale);
+
+        return view('program-overview')
+            ->with('locale', $locale);
+
+    }
+
+
+    /**
+     * Display the contact view
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function contact(Request $request, $locale = null)
+    {
+
+        App::setLocale($locale);
+
+        return view('contact')
+            ->with('locale', $locale);
+
+    }
+
+
+    /**
      * Display the foundation test view
      *
      * @return \Illuminate\Http\Response
