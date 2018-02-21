@@ -7,9 +7,9 @@
     "clean": "./node_modules/.bin/rimraf ../app/public/output/",
     "tidy": "npm run clean",
     "babel": "./node_modules/.bin/babel --presets es2015 ../app/public/js/main.js -o ../app/public/output/main.js",
-    "start": "NODE_PATH=./node_modules NODE_ENV=dev webpack --watch --colors --bail --progress",
-    "build:dev": "NODE_PATH=./node_modules NODE_ENV=dev node_modules/.bin/webpack --colors --bail --progress",
-    "build:prod": "NODE_PATH=./node_modules NODE_ENV=prod webpack -p"
+    "start": "cross-env NODE_PATH=./node_modules NODE_ENV=dev webpack --watch --colors --bail --progress",
+    "build:dev": "cross-env NODE_PATH=./node_modules NODE_ENV=dev node_modules/.bin/webpack --colors --bail --progress",
+    "build:prod": "cross-env NODE_PATH=./node_modules NODE_ENV=prod webpack -p"
   },
   "author": "Mike Turner <turner.mike@gmail.com>",
   "contributors": [
