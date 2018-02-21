@@ -11,7 +11,9 @@
 |
 */
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+
+Auth::routes();
 
 // home/landing page
 Route::get('/', ['as' => 'index', 'uses' => 'StaticController@index']);
@@ -23,4 +25,3 @@ Route::get('/{locale}/submit', ['as' => 'submit', 'uses' => 'StaticController@su
 
 Route::post('/{locale}/submit', ['as' => 'submit', 'uses' => 'FormController@submit']);
 
-Auth::routes();
