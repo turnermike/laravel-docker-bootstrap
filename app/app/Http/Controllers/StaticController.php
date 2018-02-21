@@ -25,9 +25,9 @@ class StaticController extends Controller
     {
         App::setLocale($locale);
 
-        if(empty($locale)){
-            return redirect('en-CA');
-        }
+        // if(empty($locale)){
+        //     return redirect('en-CA');
+        // }
 
         $links = \App\Link::all();
 
