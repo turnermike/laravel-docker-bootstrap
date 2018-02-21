@@ -24,3 +24,7 @@ Route::get('/{locale}/submit', ['as' => 'submit', 'uses' => 'StaticController@su
 Route::post('/{locale}/submit', ['as' => 'submit', 'uses' => 'FormController@submit']);
 
 Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

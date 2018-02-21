@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ App::getLocale() }}">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,67 +8,73 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ (!empty($title) ? $title : 'Fallback Page Title Here') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/output/app.css" rel="stylesheet">
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="{{ (!empty($bodyclass) ? $bodyclass : 'page') }}">
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
 
-    <!-- offcanvas mobile menu -->
-    <div class="off-canvas in-canvas-for-medium position-right" id="offCanvas" data-off-canvas>
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-        <div class="grid-container">
-
-            <header class="grid-x grid-margin-x">
-
-                <div class="small-12 medium-6 cell hide-for-small-only">
-                    <a href="/{{$locale}}/" class="logo">{{ Lang::get('header.logo_text' )}}</a>
+                    <!-- Branding Image -->
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
                 </div>
 
-                <div class="small-12 medium-6 cell relative">
-                    <ul class="site-menu vertical medium-horizontal menu">
-                        <li><a href="{{ Lang::get('header.site_menu_item_1_target') }}" class="{{ (Request::route()->getName() == 'index') ? 'active' : '' }}">{{ Lang::get('header.site_menu_item_1') }}</a></li>
-                        <li><a href="{{ Lang::get('header.site_menu_item_2_target') }}" class="{{ (Request::route()->getName() == 'program-overview') ? 'active' : '' }}">{{ Lang::get('header.site_menu_item_2') }}</a></li>
-                        <li><a href="{{ Lang::get('header.site_menu_item_3_target') }}" class="{{ (Request::route()->getName() == 'contact') ? 'active' : '' }}">{{ Lang::get('header.site_menu_item_3') }}</a></li>
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
                     </ul>
-                    <ul class="user-menu vertical medium-horizontal menu">
-                        <li><a href="{{ Lang::get('header.user_menu_item_1_target') }}">{!! Lang::get('header.user_menu_item_1') !!}</a></li>
-                        <li><a href="{{ Lang::get('header.user_menu_item_2_target') }}">{{ Lang::get('header.user_menu_item_2') }}</a></li>
-                        <li><a href="{{ Lang::get('header.user_menu_item_3_target') }}">{{ Lang::get('header.user_menu_item_3') }}</a></li>
-                        {{-- <li><a href="#" class="fi-magnifying-glass"></a></li> --}}
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endguest
                     </ul>
                 </div>
-
-            </header>
-
-        </div>
-
-    </div>
-
-    <!-- page content -->
-    <div class="off-canvas-content" data-off-canvas-content>
-
-        <header class="title-bar hide-for-medium">
-            <div class="title-bar-left">
-                <a href="/{{$locale}}/" class="logo">{{ Lang::get('header.logo_text' )}}</a>
-                {{-- <span class="title-bar-title"></span> --}}
             </div>
-            <div class="title-bar-right">
-                <button class="menu-icon" type="button" data-open="offCanvas"></button>
-            </div>
-        </header>
+        </nav>
 
-        @yield('content');
-
+        @yield('content')
     </div>
-
-    {{-- <input type="hidden" id="txtDebug" value="true" /> --}}
 
     <!-- Scripts -->
-    <script src="/output/vendor.js"></script>
-    <script src="/output/app.js"></script>
-
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
