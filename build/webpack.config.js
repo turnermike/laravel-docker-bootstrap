@@ -118,6 +118,7 @@ module.exports = {
       ifProd({
         test: /\.(woff|woff2|ttf|eot|svg)$/,
         include: [path.resolve(__dirname, '../app/public/fonts')],
+        exclude: /node_modules/,
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[ext]',
@@ -199,8 +200,13 @@ module.exports = {
 
           }
         ]
-      }
+      },
 
+      // load laravel translation strings in js
+      {
+          test: /resources(\\|\/)lang.+\.(php|json)$/,
+          loader: 'laravel-localization-loader',
+      }
 
     ])
 
