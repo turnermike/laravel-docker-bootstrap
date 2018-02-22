@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'page_title' => 'Laravel Docker Bootstrap - Program Overview',
+    'page_title' => 'Laravel Docker Bootstrap - About',
     'title'      => 'About Page (fr-CA)',
 
 ];

@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App;
-// use Lang;
 use LaravelLocalization;
 
 
@@ -20,11 +18,10 @@ class StaticController extends Controller
      * Set the current language using LaravelLocalization
      *
      */
-    public function __construct()
-    {
+    public function __construct(){
 
         App::setLocale(LaravelLocalization::getCurrentLocale());
-        echo '<br>LaravelLocalization::getCurrentLocale(): ' . LaravelLocalization::getCurrentLocale();
+        // echo '<br>LaravelLocalization::getCurrentLocale(): ' . LaravelLocalization::getCurrentLocale();
 
     }
 
@@ -34,8 +31,7 @@ class StaticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request){
 
         return view('home');
 
@@ -47,8 +43,7 @@ class StaticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function about(Request $request)
-    {
+    public function about(Request $request){
 
         return view('about');
 
@@ -60,8 +55,7 @@ class StaticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function contact(Request $request)
-    {
+    public function contact(Request $request){
 
         return view('contact');
 
@@ -69,12 +63,22 @@ class StaticController extends Controller
 
 
     /**
+     * Display the dashboard view
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function dashboard(Request $request){
+
+        return view('auth.dashboard');
+
+    }
+
+    /**
      * Display the foundation test view
      *
      * @return \Illuminate\Http\Response
      */
-    public function foundationtest(Request $request)
-    {
+    public function foundationtest(Request $request){
 
         return view('foundation-test');
 

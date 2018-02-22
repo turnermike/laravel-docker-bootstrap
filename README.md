@@ -29,6 +29,10 @@ docker-compose up -d --build
 We're using the [Laravel](https://laravel.com/docs/5.5) PHP framework.
 Installation guide: [https://laravel.com/docs/5.1/installation](https://laravel.com/docs/5.1/installation)
 
+### Packages Used
+Localization: larvel-localization
+[https://github.com/mcamara/laravel-localization](https://github.com/mcamara/laravel-localization)
+
 Run composer to install PHP dependencies.
 ```
 cd app

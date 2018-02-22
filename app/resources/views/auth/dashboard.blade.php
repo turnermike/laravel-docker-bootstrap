@@ -2,6 +2,6 @@
 @section('content')
 
 
-<h1>Dashboard Page</h1>
+<h1>{{ Lang::get('dashboard.title') }}</h1>
 
 @endsection
