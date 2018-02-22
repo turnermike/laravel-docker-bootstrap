@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'logo_text'                 => 'McDonald\'s AtoMc Hockey',
+    'logo_text'                 => 'Laravel Docker Bootstrap',
 
     'user_menu_item_1'          => 'Quebec &Eacute;quipe McDo<sup>MD</sup>',
     'user_menu_item_1_target'   => '/en-CA',

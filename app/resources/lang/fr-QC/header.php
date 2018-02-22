@@ -15,9 +15,9 @@ return [
     |
     */
 
-    'logo_text'                 => 'McDonald\'s AtoMc Hockey',
+    'logo_text'                 => 'Laravel Docker Bootstrap',
 
-    'user_menu_item_1'          => 'McDonald\'s AtoMc Hockey',
+    'user_menu_item_1'          => 'Laravel Docker Bootstrap',
     'user_menu_item_1_target'   => '/fr-CA',
     'user_menu_item_2'          => 'EN',
     'user_menu_item_2_target'   => '/en-QC',

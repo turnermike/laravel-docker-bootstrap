@@ -13,6 +13,6 @@ return [
     |
     */
 
-    'page_title' => 'McDonald\'s AtoMc Hockey - Contact',
+    'page_title' => 'Laravel Docker Bootstrap - Contact',
 
 ];

@@ -7,32 +7,37 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App;
-use Lang;
-// use App\Recipient;
-// use App\Codes;
-// use DB;
+// use Lang;
+use LaravelLocalization;
 
 
 class StaticController extends Controller
 {
 
     /**
-     * Display the home/landing page view
+     * Constructor
+     *
+     * Set the current language using LaravelLocalization
+     *
+     */
+    public function __construct()
+    {
+
+        App::setLocale(LaravelLocalization::getCurrentLocale());
+        echo '<br>LaravelLocalization::getCurrentLocale(): ' . LaravelLocalization::getCurrentLocale();
+
+    }
+
+
+    /**
+     * Display the home page view
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $locale = null)
+    public function index(Request $request)
     {
-        App::setLocale($locale);
 
-        // if(empty($locale)){
-        //     return redirect('en-CA');
-        // }
-
-        $links = \App\Link::all();
-
-        return view('home', [ 'links' => $links ])
-            ->with('locale', $locale);
+        return view('home');
 
     }
 
@@ -42,13 +47,10 @@ class StaticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function about(Request $request, $locale = null)
+    public function about(Request $request)
     {
 
-        App::setLocale($locale);
-
-        return view('about')
-            ->with('locale', $locale);
+        return view('about');
 
     }
 
@@ -58,13 +60,10 @@ class StaticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function contact(Request $request, $locale = null)
+    public function contact(Request $request)
     {
 
-        App::setLocale($locale);
-
-        return view('contact')
-            ->with('locale', $locale);
+        return view('contact');
 
     }
 
@@ -74,29 +73,10 @@ class StaticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function foundationtest(Request $request, $locale = null)
+    public function foundationtest(Request $request)
     {
 
-        App::setLocale($locale);
-
-        return view('foundation-test')
-            ->with('locale', $locale);
-
-    }
-
-
-    /**
-     * Display the submit view
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function submit(Request $request, $locale = null)
-    {
-
-        App::setLocale($locale);
-
-        return view('submit')
-            ->with('locale', $locale);
+        return view('foundation-test');
 
     }
 
