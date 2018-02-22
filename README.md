@@ -64,7 +64,7 @@ php artisan migrate:fresh --seed
 ```
 
 ## Webpack
-The task running in use. Used for SASS/JS autoprefixing, source maps and minification.
+The task runner in use. Used for SASS/JS autoprefixing, source maps, image optimization and code minification.
 
 ### Development
 Watches files for changes. Uses source maps and expanded code.
@@ -86,9 +86,9 @@ npm run build:prod
 
 # Resources
 
-Laravel Localization: [https://github.com/mcamara/laravel-localization](https://github.com/mcamara/laravel-localization)
-Quickstart Tutorial: [https://laravel.com/docs/5.1/quickstart](https://laravel.com/docs/5.1/quickstart)
-Localization: [https://laravel.com/docs/5.5/localization](https://laravel.com/docs/5.5/localization)
+- Laravel Localization: [https://github.com/mcamara/laravel-localization](https://github.com/mcamara/laravel-localization)
+- Quickstart Tutorial: [https://laravel.com/docs/5.1/quickstart](https://laravel.com/docs/5.1/quickstart)
+- Localization: [https://laravel.com/docs/5.5/localization](https://laravel.com/docs/5.5/localization)
 
 ------------------------------------------
 
