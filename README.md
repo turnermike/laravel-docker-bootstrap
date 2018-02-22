@@ -27,6 +27,7 @@ Localization: larvel-localization
 - Node.js
 - NPM
 - Docker
+- Composer
 
 # Project Setup
 
