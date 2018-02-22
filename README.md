@@ -1,16 +1,23 @@
-# McDonald's AtoMc Hockey
-A custom Laravel application developed by Cossette for McDonald's Canada.
+# Laravel Docker Bootstrap
+A custom Laravel application developed by Mike Turner. Includes multiple locales and out-of-the-box user authentication.
+
+Locales includes:
+- en-CA
+- fr-CA
+- en-QC
+- fr-QC
 
 Using:
 
 - Docker (Docker Compose 2)
-- Laravel 5.5.25
+- Laravel 5.6.4
 - Foundation 6
 - Webpack 4
 
 # Requirements
 
 - Node.js
+- NPM
 - Docker
 
 # Project Setup
@@ -76,14 +83,12 @@ npm run build:prod
 ```
 
 # Resources
-Links Tutorial: [https://laravel-news.com/your-first-laravel-application](https://laravel-news.com/your-first-laravel-application)
 
+Laravel Localization: [https://github.com/mcamara/laravel-localization](https://github.com/mcamara/laravel-localization)
 Quickstart Tutorial: [https://laravel.com/docs/5.1/quickstart](https://laravel.com/docs/5.1/quickstart)
-
 Localization: [https://laravel.com/docs/5.5/localization](https://laravel.com/docs/5.5/localization)
 
-
-
+------------------------------------------
 
 # New Project Setup - Quick Steps
 1. docker-compose build
