@@ -13,6 +13,7 @@ return [
     |
     */
 
-    'page_title' => 'FR - McDonald\'s AtoMc Hockey - Program Overview',
+    'page_title' => 'Laravel Docker Bootstrap - Program Overview',
+    'title'      => 'About Page (en-QC)',
 
 ];
