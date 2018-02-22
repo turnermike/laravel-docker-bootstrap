@@ -66,13 +66,13 @@ php artisan migrate:fresh --seed
 ## Webpack
 The task runner in use. Used for SASS/JS autoprefixing, source maps, image optimization and code minification.
 
-### Development
+### Development Watch
 Watches files for changes. Uses source maps and expanded code.
 ```
 npm run start
 ```
 
-### Dev Build
+### Development/Staging Build
 A single run build using source maps and expanded code.
 ```
 npm run build:dev
