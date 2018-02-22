@@ -2,19 +2,27 @@
 A custom Laravel application developed by Mike Turner. Includes multiple locales and out-of-the-box user authentication.
 
 Locales includes:
+
 - en-CA
 - fr-CA
 - en-QC
 - fr-QC
 
-Using:
+## Using:
 
-- Docker (Docker Compose 2)
-- Laravel 5.6.4
-- Foundation 6
-- Webpack 4
+- [Docker](https://docs.docker.com/)
+- [Docker Compose 2](https://docs.docker.com/compose/)
+- [Laravel 5.6.4](https://laravel.com/docs/5.6)
+- [Foundation 6](https://foundation.zurb.com/sites/docs/)
+- [Webpack 4](https://webpack.js.org/concepts/)
 
-# Requirements
+
+### Laravel Packages Used
+Localization: larvel-localization
+[https://github.com/mcamara/laravel-localization](https://github.com/mcamara/laravel-localization)
+
+
+## Requirements
 
 - Node.js
 - NPM
@@ -32,13 +40,7 @@ If containers have not yet been built. Build and start in detached mode.
 docker-compose up -d --build
 ```
 
-## Larvel
-We're using the [Laravel](https://laravel.com/docs/5.5) PHP framework.
-Installation guide: [https://laravel.com/docs/5.1/installation](https://laravel.com/docs/5.1/installation)
-
-### Packages Used
-Localization: larvel-localization
-[https://github.com/mcamara/laravel-localization](https://github.com/mcamara/laravel-localization)
+## Laravel
 
 Run composer to install PHP dependencies.
 ```
