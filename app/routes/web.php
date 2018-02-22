@@ -18,7 +18,7 @@ Auth::routes();
 // get requests
 Route::get('/', ['as' => 'index', 'uses' => 'StaticController@index']);
 // Route::get('/{locale}', ['as' => 'index', 'uses' => 'StaticController@index']);
-// Route::get('/{locale}/program-overview', ['as' => 'program-overview', 'uses' => 'StaticController@programOverview']);
+Route::get('/{locale}/about', ['as' => 'about', 'uses' => 'StaticController@about']);
 // Route::get('/{locale}/contact', ['as' => 'contact', 'uses' => 'StaticController@contact']);
 // Route::get('/{locale}/foundationtest', ['as' => 'foundationtest', 'uses' => 'StaticController@foundationtest']);
 // Route::get('/{locale}/submit', ['as' => 'submit', 'uses' => 'StaticController@submit']);

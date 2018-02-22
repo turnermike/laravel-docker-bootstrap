@@ -42,12 +42,12 @@ class StaticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function programOverview(Request $request, $locale = null)
+    public function about(Request $request, $locale = null)
     {
 
         App::setLocale($locale);
 
-        return view('program-overview')
+        return view('about')
             ->with('locale', $locale);
 
     }
