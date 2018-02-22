@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => Lang::get('program-overview.page_title'), 'bodyclass' => 'program-overview'])
+@extends('layouts.app', ['title' => Lang::get('program-overview.page_title'), 'bodyclass' => 'about'])
 @section('content')
 
         <div class="grid-container">

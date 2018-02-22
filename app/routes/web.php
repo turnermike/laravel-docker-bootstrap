@@ -19,10 +19,16 @@ Auth::routes();
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-    Route::get('/', function()
-    {
-        return View::make('hello');
-    });
+    Route::get('/',                 ['as' => 'index',           'uses' => 'StaticController@index']);
+    Route::get('/about',            ['as' => 'about',           'uses' => 'StaticController@about']);
+    Route::get('/contact',          ['as' => 'contact',         'uses' => 'StaticController@contact']);
+    Route::get('/foundationtest',   ['as' => 'foundationtest',  'uses' => 'StaticController@foundationtest']);
+    Route::get('/submit',           ['as' => 'submit',          'uses' => 'StaticController@submit']);
+
+    // Route::get('/', function()
+    // {
+    //     return View::make('hello');
+    // });
 
     Route::get('test',function(){
         return View::make('test');
@@ -31,9 +37,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 });
 
 // get requests
-Route::get('/', ['as' => 'index', 'uses' => 'StaticController@index']);
+// Route::get('/', ['as' => 'index', 'uses' => 'StaticController@index']);
 // Route::get('/{locale}', ['as' => 'index', 'uses' => 'StaticController@index']);
-Route::get('/{locale}/about', ['as' => 'about', 'uses' => 'StaticController@about']);
+// Route::get('/{locale}/about', ['as' => 'about', 'uses' => 'StaticController@about']);
 // Route::get('/{locale}/contact', ['as' => 'contact', 'uses' => 'StaticController@contact']);
 // Route::get('/{locale}/foundationtest', ['as' => 'foundationtest', 'uses' => 'StaticController@foundationtest']);
 // Route::get('/{locale}/submit', ['as' => 'submit', 'uses' => 'StaticController@submit']);
