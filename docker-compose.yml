@@ -1,6 +1,6 @@
 version: '2'
 services:
-  app:                              # php 7.0.4-fpm
+  app:                              # php 7.1.14-fpm
     build:
       context: ./
       dockerfile: app.dockerfile
@@ -20,7 +20,7 @@ services:
     volumes_from:
       - app
     ports:
-      - 80:80
+      - 8081:8081
     links:
       - db
   db:                               # mysql 5.6
