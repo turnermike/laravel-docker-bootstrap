@@ -15,6 +15,21 @@
 
 Auth::routes();
 
+
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+{
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::get('/', function()
+    {
+        return View::make('hello');
+    });
+
+    Route::get('test',function(){
+        return View::make('test');
+    });
+
+});
+
 // get requests
 Route::get('/', ['as' => 'index', 'uses' => 'StaticController@index']);
 // Route::get('/{locale}', ['as' => 'index', 'uses' => 'StaticController@index']);
