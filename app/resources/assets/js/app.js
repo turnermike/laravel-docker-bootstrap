@@ -38,18 +38,6 @@ $(document).ready(function(){
     // initialize foundation
     $(document).foundation();
 
-    // truncate test
-    var testString = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.';
-    var options = {
-      TruncateLength: 14,
-      TruncateBy: 'words',
-      Strict: false,
-      StripHTML: false,
-      Suffix: '...'
-    };
-    var desc = truncatise(testString, options);
-    $('.truncate-test p').html(desc);
-
   // }catch(error){
 
   //   console.log('Error: ', error);
