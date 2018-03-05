@@ -57,7 +57,6 @@
     "what-input": "^5.0.3"
   },
   "dependencies": {
-    "lang.js": "^1.1.12",
-    "truncatise": "0.0.6"
+    "lang.js": "^1.1.12"
   }
 }
