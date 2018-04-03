@@ -91,6 +91,14 @@ npm run build:prod
 - Quickstart Tutorial: [https://laravel.com/docs/5.1/quickstart](https://laravel.com/docs/5.1/quickstart)
 - Localization: [https://laravel.com/docs/5.5/localization](https://laravel.com/docs/5.5/localization)
 
+
+Last 2FA Tutorial:
+https://www.sitepoint.com/2fa-in-laravel-with-google-authenticator-get-secure/
+
+
+
+
+
 ------------------------------------------
 
 # New Project Setup - Quick Steps
