@@ -92,8 +92,12 @@ npm run build:prod
 - Localization: [https://laravel.com/docs/5.5/localization](https://laravel.com/docs/5.5/localization)
 
 
-Last 2FA Tutorial:
+First 2FA Tutorial (branch: 2fa):
 https://www.sitepoint.com/2fa-in-laravel-with-google-authenticator-get-secure/
+
+Second 2FA Tutorial (branch 2fa-2):
+https://scotch.io/tutorials/how-to-add-googles-two-factor-authentication-to-laravel
+
 
 
 
