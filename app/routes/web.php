@@ -28,6 +28,7 @@ Route::group(
 
         /* localized get requests */
         Route::get('/',                 ['as' => 'home',           'uses' => 'StaticController@index']);
+        Route::get('/home',             ['as' => 'home',           'uses' => 'StaticController@index']);
         Route::get('/about',            ['as' => 'about',           'uses' => 'StaticController@about']);
         Route::get('/contact',          ['as' => 'contact',         'uses' => 'StaticController@contact']);
         Route::get('/foundationtest',   ['as' => 'foundationtest',  'uses' => 'StaticController@foundationtest']);
