@@ -20,8 +20,6 @@ class StaticController extends Controller
      */
     public function __construct(){
 
-        $this->middleware(['auth', '2fa']);
-
         App::setLocale(LaravelLocalization::getCurrentLocale());
         // echo '<br>LaravelLocalization::getCurrentLocale(): ' . LaravelLocalization::getCurrentLocale();
 
@@ -36,7 +34,6 @@ class StaticController extends Controller
     public function index(Request $request){
 
         return view('home');
-        // $this->middleware(['auth', '2fa']);
 
     }
 
@@ -49,7 +46,6 @@ class StaticController extends Controller
     public function about(Request $request){
 
         return view('about');
-        // $this->middleware(['auth', '2fa']);
 
     }
 
@@ -73,10 +69,7 @@ class StaticController extends Controller
      */
     public function dashboard(Request $request){
 
-
-        // echo 'load dashboard view';
         return view('auth.dashboard');
-
 
     }
 

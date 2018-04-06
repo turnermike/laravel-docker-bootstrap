@@ -40,7 +40,7 @@ Route::group(
         })->name('2fa')->middleware('2fa');
 
         // secure dashboard
-        Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'StaticController@dashboard']);
+        Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'DashboardController@dashboard']);
 
     }
 
