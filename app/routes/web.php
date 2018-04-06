@@ -32,6 +32,9 @@ Route::group(
         Route::get('/contact',          ['as' => 'contact',         'uses' => 'StaticController@contact']);
         Route::get('/foundationtest',   ['as' => 'foundationtest',  'uses' => 'StaticController@foundationtest']);
 
+        // 2fa
+        Route::get('/complete-registration', 'Auth\RegisterController@completeRegistration');
+
         // secure dashboard
         Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'StaticController@dashboard']);
 
