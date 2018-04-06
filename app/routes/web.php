@@ -32,8 +32,12 @@ Route::group(
         Route::get('/contact',          ['as' => 'contact',         'uses' => 'StaticController@contact']);
         Route::get('/foundationtest',   ['as' => 'foundationtest',  'uses' => 'StaticController@foundationtest']);
 
-        // 2fa
+        // 2fa - registration
         Route::get('/complete-registration', 'Auth\RegisterController@completeRegistration');
+        // 2fa - login
+        Route::post('/2fa', function () {
+            return redirect(URL()->previous());
+        })->name('2fa')->middleware('2fa');
 
         // secure dashboard
         Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'StaticController@dashboard']);
