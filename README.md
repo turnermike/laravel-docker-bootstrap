@@ -1,5 +1,5 @@
 # Laravel Docker Bootstrap
-A custom Laravel application developed by Mike Turner. Includes multiple locales and out-of-the-box user authentication.
+A custom Laravel application developed by Mike Turner. Includes multiple locales and user authentication with Google 2FA.
 
 Locales includes:
 
@@ -86,7 +86,7 @@ npm run build:prod
 ```
 
 # 2 Factor Authentication
-Using pragmarx/google2fa-laravel and bacon/bacon-qr-code packages via composer. User will need to install Google Authenticator on
+Using `pragmarx/google2fa-laravel` and `bacon/bacon-qr-code` packages via composer. User will need to install Google Authenticator on
 thier mobile device.
 
 ## /re-authenticate
