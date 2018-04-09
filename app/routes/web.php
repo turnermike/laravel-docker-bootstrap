@@ -27,11 +27,11 @@ Route::group(
         Auth::routes(); // /login, /logout, /register
 
         /* localized get requests */
-        Route::get('/',                 ['as' => 'home',           'uses' => 'StaticController@index']);
-        Route::get('/home',             ['as' => 'home',           'uses' => 'StaticController@index']);
-        Route::get('/about',            ['as' => 'about',           'uses' => 'StaticController@about']);
-        Route::get('/contact',          ['as' => 'contact',         'uses' => 'StaticController@contact']);
-        Route::get('/foundationtest',   ['as' => 'foundationtest',  'uses' => 'StaticController@foundationtest']);
+        Route::get('/',                 ['as' => 'home',                'uses' => 'StaticController@index']);
+        Route::get('/home',             ['as' => 'home',                'uses' => 'StaticController@index']);
+        Route::get('/about',            ['as' => 'about',               'uses' => 'StaticController@about']);
+        Route::get('/contact',          ['as' => 'contact',             'uses' => 'StaticController@contact']);
+        Route::get('/foundationtest',   ['as' => 'foundationtest',      'uses' => 'StaticController@foundationtest']);
 
         // 2fa - registration
         Route::get('/complete-registration', 'Auth\RegisterController@completeRegistration');
@@ -39,8 +39,10 @@ Route::group(
         Route::post('/2fa', function () {
             return redirect(URL()->previous());
         })->name('2fa')->middleware('2fa');
-
-        Route::get('/2fa',              ['as' => 'dashboard',      'uses' => 'DashboardController@dashboard']);
+        // 2fa - successful auth redirects to /2fa, need to add a route for get requests
+        Route::get('/2fa',              ['as' => 'dashboard',           'uses' => 'DashboardController@dashboard']);
+        // 2fa - reauthentication
+        Route::get('/re-authentication', ['as' => 're-authentication',   'uses' => 'DashboardController@reauthenticate']);
 
         // secure dashboard
         Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'DashboardController@dashboard']);
