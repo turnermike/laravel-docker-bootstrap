@@ -86,7 +86,35 @@ npm run build:prod
 ```
 
 # 2 Factor Authentication
-Using the
+Using pragmarx/google2fa-laravel and bacon/bacon-qr-code packages via composer. User will need to install Google Authenticator on
+thier mobile device.
+
+## /re-authenticate
+If a user feels that someone has access to their secret. They may reset it if they have been previously authenticated. The controller
+is behind auth middleware.
+
+## Manual Reset
+If a user lost their phone and has no access to their dashboard, we may manually reset their secret with the following command. This will
+require the user's email address and then provide them with a code they may manually enter into Google Authenticator.
+
+```
+php artisan 2fa:reauthenticate
+```
+
+For example, here are the results of running that command:
+```
+ what is the user's email?:
+ > turner.mike@gmail.com
+
+A new secret will be generated for turner.mike@gmail.com
+This action will invalidate the previous secret key.
+
+ Do you wish to continue? (yes/no) [no]:
+ > yes
+
+A new secret has been generated for turner.mike@gmail.com
+The new secret is: QLNEWONFWIZVGGT6
+```
 
 # Resources
 
