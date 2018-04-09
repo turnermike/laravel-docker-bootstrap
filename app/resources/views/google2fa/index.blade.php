@@ -11,6 +11,11 @@
                     <form class="form-horizontal" method="POST" action="{{ route('2fa') }}">
                         {{ csrf_field() }}
 
+                        <?php
+                            // echo '<pre>';
+                            // var_dump(session()->all());
+                            // echo '</pre>';
+                        ?>
                         <div class="form-group">
                             <label for="one_time_password" class="col-md-4 control-label">One Time Password</label>
 

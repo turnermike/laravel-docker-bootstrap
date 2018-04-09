@@ -40,6 +40,8 @@ Route::group(
             return redirect(URL()->previous());
         })->name('2fa')->middleware('2fa');
 
+        Route::get('/2fa',              ['as' => 'dashboard',      'uses' => 'DashboardController@dashboard']);
+
         // secure dashboard
         Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'DashboardController@dashboard']);
 
