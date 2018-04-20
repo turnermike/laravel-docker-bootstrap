@@ -1,3 +1,8 @@
 FROM httpd:2.4
+# https://hub.docker.com/r/_/httpd/
 
-# ADD vhost.conf /etc/nginx/conf.d/default.conf
+# backup original apache config file
+RUN cp /usr/local/apache2/conf/httpd.conf /usr/local/apache2/conf/httpd.conf.orig
+
+# copy custom apache config file
+COPY ./httpd/httpd.conf /usr/local/apache2/conf/httpd.conf
