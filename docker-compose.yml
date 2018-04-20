@@ -4,7 +4,7 @@ services:
     build:
       context: ./
       dockerfile: app.dockerfile
-    container_name: laravelbootstrap-php
+    container_name: laravelbootstrap-app
     working_dir: /var/www
     volumes:
       - ./app:/var/www
