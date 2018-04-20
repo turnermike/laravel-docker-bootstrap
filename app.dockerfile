@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 # tools
-RUN apt-get install -y --no-install-recommends git zip unzip
+RUN apt-get install -y --no-install-recommends git zip unzip nano
 
 
 # php modules
@@ -17,16 +17,18 @@ RUN apt-get install -y libmcrypt-dev libpng-dev \
     && docker-php-ext-enable imagick \
     && docker-php-ext-install mcrypt pdo_mysql gd
 
-# composer (execute via 'php composer.phar <command>')
-# RUN curl --silent --show-error https://getcomposer.org/installer | php
-# RUN mv /composer.phar /usr/
+# clean up
+RUN apt-get autoremove && apt-get clean
 
+
+# download/install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-
 # add a new user
-RUN useradd -ms /bin/bash docker
-USER docker
+# RUN useradd -ms /bin/bash docker
 
-# WORKDIR /var/www
-# RUN php /var/www/composer.phar update && php /var/www/composer.phar install
+# switch to new user
+# USER docker
+
+# open ports
+EXPOSE 80
