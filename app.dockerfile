@@ -1,4 +1,6 @@
-FROM php:7.1.14-fpm
+FROM php:7.1-apache
+
+MAINTAINER Mike Turner <turner.mike@gmail.com>
 
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
@@ -7,7 +9,10 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 # tools
-RUN apt-get install -y --no-install-recommends git zip unzip nano
+RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs npm
+
+# copy apache config
+COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 
 # php modules
@@ -32,3 +37,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # open ports
 EXPOSE 80
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

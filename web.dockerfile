@@ -5,4 +5,4 @@ FROM httpd:2.4
 RUN cp /usr/local/apache2/conf/httpd.conf /usr/local/apache2/conf/httpd.conf.orig
 
 # copy custom apache config file
-COPY ./httpd/httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY ./httpd/httpd.conf /usr/local/apache2/conf/httpd.confls

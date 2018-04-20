@@ -1,6 +1,6 @@
 version: '2'
 services:
-  app:                              # php 7.1.14-fpm
+  app:                              # php 7.1-apache
     build:
       context: ./
       dockerfile: app.dockerfile
@@ -8,22 +8,24 @@ services:
     working_dir: /var/www
     volumes:
       - ./app:/var/www
+    ports:
+      - 80:80
     environment:
       - "DB_PORT=3306"
       - "DB_HOST=db"
-  web:                              # apache 2.4
-    build:
-      context: ./
-      dockerfile: web.dockerfile
-    container_name: laravelbootstrap-apache
-    working_dir: /var/www
-    volumes_from:
-      - app
-    ports:
-      # - 8081:8081
-      - 80:80
-    links:
-      - db
+  # web:                              # apache
+  #   build:
+  #     context: ./
+  #     dockerfile: web.dockerfile
+  #   container_name: laravelbootstrap-apache
+  #   working_dir: /var/www
+  #   volumes_from:
+  #     - app
+  #   ports:
+  #     # - 8081:8081
+  #     - 80:80
+  #   links:
+  #     - db
   db:                               # mysql 5.6
     image: mysql:5.6
     container_name: laravelbootstrap-mysql
