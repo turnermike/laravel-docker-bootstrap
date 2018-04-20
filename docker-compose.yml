@@ -4,18 +4,18 @@ services:
     build:
       context: ./
       dockerfile: app.dockerfile
-    container_name: laravelbootstrap-app
+    container_name: laravelbootstrap-php
     working_dir: /var/www
     volumes:
       - ./app:/var/www
     environment:
       - "DB_PORT=3306"
       - "DB_HOST=db"
-  web:                              # nginx 1.10
+  web:                              # apache 2.4
     build:
       context: ./
       dockerfile: web.dockerfile
-    container_name: laravelbootstrap-web
+    container_name: laravelbootstrap-apache
     working_dir: /var/www
     volumes_from:
       - app
@@ -26,7 +26,7 @@ services:
       - db
   db:                               # mysql 5.6
     image: mysql:5.6
-    container_name: laravelbootstrap-db
+    container_name: laravelbootstrap-mysql
     volumes:
       - ./.dbdata:/var/lib/mysql
     environment:
