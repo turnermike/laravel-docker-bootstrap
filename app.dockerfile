@@ -3,22 +3,30 @@ FROM php:7.1.14-fpm
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
 
+# update
+RUN apt-get update
+
+# tools
+RUN apt-get install -y --no-install-recommends git zip unzip
+
+
 # php modules
-RUN apt-get update && apt-get install -y libmcrypt-dev libpng-dev \
+RUN apt-get install -y libmcrypt-dev libpng-dev \
     mysql-client libmagickwand-dev --no-install-recommends \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
     && docker-php-ext-install mcrypt pdo_mysql gd
 
-# other tools
-RUN apt-get install -y unzip
+# composer (execute via 'php composer.phar <command>')
+# RUN curl --silent --show-error https://getcomposer.org/installer | php
+# RUN mv /composer.phar /usr/
 
-# composer
-# RUN cd /tmp && curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-# RUN cd /var/www && composer install
-
-
-RUN adduser docker
-USER docker
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install
+
+
+# add a new user
+RUN useradd -ms /bin/bash docker
+USER docker
+
+# WORKDIR /var/www
+# RUN php /var/www/composer.phar update && php /var/www/composer.phar install
