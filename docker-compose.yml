@@ -11,6 +11,7 @@ services:
     ports:
       - 80:80
     environment:
+      - "APACHE_LOG_DIR=/var/log/apache2"
       - "DB_PORT=3306"
       - "DB_HOST=db"
   # web:                              # apache
