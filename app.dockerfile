@@ -5,11 +5,14 @@ MAINTAINER Mike Turner <turner.mike@gmail.com>
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
 
-# update
+# update package lists from their repositories
 RUN apt-get update
 
 # tools
 RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs npm
+
+# backup the original apache config in container
+RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.orig
 
 # copy apache config
 COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
@@ -39,6 +42,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 EXPOSE 80
 
 
-ENTRYPOINT echo 'APACHE_LOG_DIR: ' $APACHE_LOG_DIR
+# ENTRYPOINT echo 'APACHE_LOG_DIR: ' $APACHE_LOG_DIR
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
