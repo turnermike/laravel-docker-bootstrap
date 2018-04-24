@@ -20,12 +20,15 @@ COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
 # enable mod_rewrite
 RUN a2enmod rewrite
 
-# php modules
+# install php modules
 RUN apt-get install -y libmcrypt-dev libpng-dev \
     mysql-client libmagickwand-dev --no-install-recommends \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
     && docker-php-ext-install mcrypt pdo_mysql gd
+
+# copy php config
+COPY ./php/php.ini /usr/local/etc/php
 
 # clean up
 RUN apt-get autoremove && apt-get clean
