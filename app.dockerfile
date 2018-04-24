@@ -17,6 +17,8 @@ RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-availabl
 # copy apache config
 COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
 
+# enable mod_rewrite
+RUN a2enmod rewrite
 
 # php modules
 RUN apt-get install -y libmcrypt-dev libpng-dev \
