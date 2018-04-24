@@ -14,19 +14,6 @@ services:
       - "APACHE_LOG_DIR=/var/log/apache2"
       - "DB_PORT=3306"
       - "DB_HOST=db"
-  # web:                              # apache
-  #   build:
-  #     context: ./
-  #     dockerfile: web.dockerfile
-  #   container_name: laravelbootstrap-apache
-  #   working_dir: /var/www
-  #   volumes_from:
-  #     - app
-  #   ports:
-  #     # - 8081:8081
-  #     - 80:80
-  #   links:
-  #     - db
   db:                               # mysql 5.6
     image: mysql:5.6
     container_name: laravelbootstrap-mysql
