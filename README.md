@@ -41,6 +41,12 @@ If containers have not yet been built. Build and start in detached mode.
 docker-compose up -d --build
 ```
 
+### Docker Notes/Details
+
+
+PHP config (php.ini) location: `/usr/local/etc/php/php.ini` A local copy (./php/php.ini) is copied to the container durring build.
+APACHE_LOG_DIR: `/var/log/apache2`
+
 ## Laravel
 
 Run composer to install PHP dependencies.
