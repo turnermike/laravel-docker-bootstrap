@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'logo_text'                 => 'Laravel Docker Bootstrap',
+    'logo_text'                 => 'FR - Laravel Docker Bootstrap',
 
     'user_menu_item_1'          => 'Laravel Docker Bootstrap',
     'user_menu_item_1_target'   => '/fr-CA',
