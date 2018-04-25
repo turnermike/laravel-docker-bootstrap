@@ -8,6 +8,9 @@ Locales includes:
 - en-QC
 - fr-QC
 
+
+
+
 ## Using:
 
 - [Docker](https://docs.docker.com/)
@@ -17,9 +20,11 @@ Locales includes:
 - [Webpack 4](https://webpack.js.org/concepts/)
 
 
+
 ### Laravel Packages Used
 Localization: larvel-localization
 [https://github.com/mcamara/laravel-localization](https://github.com/mcamara/laravel-localization)
+
 
 
 ## Requirements
@@ -28,6 +33,9 @@ Localization: larvel-localization
 - NPM
 - Docker
 - Composer
+
+
+
 
 # Project Setup
 
@@ -43,9 +51,10 @@ docker-compose up -d --build
 
 ### Docker Notes/Details
 
-
 PHP config (php.ini) location: `/usr/local/etc/php/php.ini` A local copy (./php/php.ini) is copied to the container durring build.
 APACHE_LOG_DIR: `/var/log/apache2`
+
+
 
 ## Laravel
 
@@ -70,6 +79,8 @@ Seed database.
 php artisan migrate:fresh --seed
 ```
 
+
+
 ## Webpack
 The task runner in use. Used for SASS/JS autoprefixing, source maps, image optimization and code minification.
 
@@ -90,6 +101,9 @@ A single run build without source maps or comments and minifies.
 ```
 npm run build:prod
 ```
+
+
+
 
 # 2 Factor Authentication
 Using `pragmarx/google2fa-laravel` and `bacon/bacon-qr-code` packages via composer. User will need to install Google Authenticator on
@@ -122,6 +136,9 @@ A new secret has been generated for turner.mike@gmail.com
 The new secret is: QLNEWONFWIZVGGT6
 ```
 
+
+
+
 # Resources
 
 - Laravel Localization: [https://github.com/mcamara/laravel-localization](https://github.com/mcamara/laravel-localization)
@@ -131,8 +148,6 @@ The new secret is: QLNEWONFWIZVGGT6
 
 2FA Tutorial (branch 2fa-2):
 https://scotch.io/tutorials/how-to-add-googles-two-factor-authentication-to-laravel
-
-
 
 
 
