@@ -28,13 +28,20 @@ COPY ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 # enable ssl
 RUN a2enmod ssl
 
-# enable mod_rewrite
-RUN a2enmod rewrite
-
-
+# enable the custom ssl vhost
+RUN a2ensite default-ssl
+# reload apache
+# RUN service apache2 reload
 
 # restart apache
 RUN service apache2 restart
+
+
+
+
+
+# enable mod_rewrite
+RUN a2enmod rewrite
 
 # install php modules
 RUN apt-get install -y libmcrypt-dev libpng-dev \
