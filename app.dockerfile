@@ -12,25 +12,21 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs npm
 
 
-# enable ssl
-# RUN a2enmod ssl
 
 # copy ssl certificate/key
-# RUN mkdir /etc/apache2/ssl
 COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
 COPY ./httpd/server.key /etc/apache2/ssl/server.key
 
-# backup the original apache config in container
+# apache config - backup the original apache config in container and copy custom file
 RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.orig
-
-# copy apache config
 COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
 
-# backup the original apache ssl config in the container
+# apache ssl config - backup the original apache ssl config in the container and copy custom file
 RUN cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.orig
-
-# copy apache ssl config
 COPY ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+
+# enable ssl
+RUN a2enmod ssl
 
 # enable mod_rewrite
 RUN a2enmod rewrite
