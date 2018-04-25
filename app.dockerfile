@@ -27,7 +27,10 @@ RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-availabl
 COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # backup the original apache ssl config in the container
-RUN cp ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+RUN cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.orig
+
+# copy apache ssl config
+COPY ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 
 # enable mod_rewrite
 RUN a2enmod rewrite
