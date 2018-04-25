@@ -17,6 +17,10 @@ RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-availabl
 # copy apache config
 COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
 
+# copy ssl certificate/key
+COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
+COPY ./httpd/server.key /etc/apache2/ssl/server.key
+
 # enable mod_rewrite
 RUN a2enmod rewrite
 
