@@ -152,6 +152,13 @@ https://scotch.io/tutorials/how-to-add-googles-two-factor-authentication-to-lara
 
 
 
+# To Do
+- add ajax uplaod with progress bar
+- ssl support for docker
+
+
+
+
 ------------------------------------------
 
 # New Project Setup - Quick Steps

@@ -26,7 +26,6 @@ services:
       - "MYSQL_ROOT_PASSWORD=hpAhsfz2CqML"
     expose:
       # - "3386"
-      # - "3306"
       - "3306"
     ports:
       # - "3386:3306"               # host port:container port
