@@ -14,22 +14,30 @@ RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs npm
 # backup the original apache config in container
 RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.orig
 
-# copy apache config
-COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
-
 # copy ssl certificate/key
+# RUN mkdir /etc/apache2/ssl
 COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
 COPY ./httpd/server.key /etc/apache2/ssl/server.key
 
+# copy apache config
+COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+
 # enable mod_rewrite
 RUN a2enmod rewrite
+
+# enable ssl
+# RUN a2emod ssl
+
+# restart apache
+# RUN service apache2 restart
 
 # install php modules
 RUN apt-get install -y libmcrypt-dev libpng-dev \
     mysql-client libmagickwand-dev --no-install-recommends \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
-    && docker-php-ext-install mcrypt pdo_mysql gd
+    && docker-php-ext-install mcrypt mysqli pdo pdo_mysql mbstring gd
 
 # copy php config
 COPY ./php/php.ini /usr/local/etc/php
