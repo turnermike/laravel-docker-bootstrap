@@ -11,26 +11,31 @@ RUN apt-get update
 # tools
 RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs npm
 
-# backup the original apache config in container
-RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.orig
+
+# enable ssl
+# RUN a2enmod ssl
 
 # copy ssl certificate/key
 # RUN mkdir /etc/apache2/ssl
 COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
 COPY ./httpd/server.key /etc/apache2/ssl/server.key
 
+# backup the original apache config in container
+RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.orig
+
 # copy apache config
 COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
 
+# backup the original apache ssl config in the container
+RUN cp ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 
 # enable mod_rewrite
 RUN a2enmod rewrite
 
-# enable ssl
-# RUN a2emod ssl
+
 
 # restart apache
-# RUN service apache2 restart
+RUN service apache2 restart
 
 # install php modules
 RUN apt-get install -y libmcrypt-dev libpng-dev \
