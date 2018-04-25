@@ -9,7 +9,8 @@ services:
     volumes:
       - ./app:/var/www
     ports:
-      - 80:80
+      # - 80:80
+      - 8081:80
     environment:
       - "APACHE_LOG_DIR=/var/log/apache2"
       - "DB_PORT=3306"
@@ -25,10 +26,10 @@ services:
       - "MYSQL_PASSWORD=hEBg9W4RTXmg"
       - "MYSQL_ROOT_PASSWORD=hpAhsfz2CqML"
     expose:
-      # - "3386"
+      - "3386"
       - "3306"
     ports:
-      # - "3386:3306"               # host port:container port
-      - 3306:3306
+      - "3386:3306"               # host port:container port
+      # - 3306:3306
 volumes:
   .dbdata:
