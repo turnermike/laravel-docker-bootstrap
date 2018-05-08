@@ -48,7 +48,7 @@ Route::group(
         Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'DashboardController@dashboard']);
 
         // send email
-        Route::get('/send', 'EmailController@send');
+        Route::get('/sendTestMessage', 'EmailController@sendTestMessage');
 
     }
 
