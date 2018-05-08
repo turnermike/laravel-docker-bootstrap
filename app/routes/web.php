@@ -47,6 +47,9 @@ Route::group(
         // secure dashboard
         Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'DashboardController@dashboard']);
 
+        // send email
+        Route::get('/sendTestMessage', 'EmailController@sendTestMessage');
+
     }
 
 );
