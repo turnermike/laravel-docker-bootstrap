@@ -21,6 +21,14 @@ class EmailController extends Controller
           $message->to('turner.mike@gmail.com');
           $message->subject('Test Message Subject');
 
+          // // additional properties
+          // $message->sender($address, $name = null);
+          // $message->cc($address, $name = null);
+          // $message->bcc($address, $name = null);
+          // $message->replyTo($address, $name = null);
+          // $message->priority($level);
+          // $message->attach($pathToFile, array $options = []);          
+
       });
 
       return response()->json(['message' => 'Request completed']);      
