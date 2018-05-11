@@ -1,5 +1,10 @@
 # Laravel Docker Bootstrap
-A custom Laravel application developed by Mike Turner. Includes multiple locales and user authentication with Google 2FA.
+A custom Laravel application developed by Mike Turner. Functionality includes:
+
+- multiple locales (en-CA, fr-CA, en-QC, fr-QC)
+- Google 2 factor authentication via Google Authenticator
+- SSL support via Docker (need to accept certificate warning when browsing https://)
+
 
 Locales includes:
 
@@ -22,8 +27,11 @@ Locales includes:
 
 
 ### Laravel Packages Used
-Localization: larvel-localization
+Localization
 [https://github.com/mcamara/laravel-localization](https://github.com/mcamara/laravel-localization)
+
+2 Factor Authentication via Google Authenticator
+[https://github.com/antonioribeiro/google2fa](https://github.com/antonioribeiro/google2fa)
 
 
 
@@ -51,6 +59,7 @@ docker-compose up -d --build
 
 ### Docker Notes/Details
 
+The app image (php:7.1-apache) is using debian:jessie for OS.
 PHP config (php.ini) location: `/usr/local/etc/php/php.ini` A local copy (./php/php.ini) is copied to the container durring build.
 APACHE_LOG_DIR: `/var/log/apache2`
 
@@ -154,7 +163,7 @@ https://scotch.io/tutorials/how-to-add-googles-two-factor-authentication-to-lara
 
 # To Do
 - add ajax uplaod with progress bar
-- ssl support for docker
+
 
 
 
@@ -169,7 +178,7 @@ https://scotch.io/tutorials/how-to-add-googles-two-factor-authentication-to-lara
 5. cp .env.example .env
 6. php artisan key:generate
 7. populate db creds in .env (look in docker-compose.yml)
-8. php artisan migrate:fresh --seed
+8. php artisan migrate
 9. cd deploy/build
 10. npm install
 

@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.1-apache # uses debian:jessie
 
 MAINTAINER Mike Turner <turner.mike@gmail.com>
 
