@@ -1,4 +1,5 @@
-FROM php:7.1-apache # uses debian:jessie
+FROM php:7.1-apache 
+# uses debian:jessie
 
 MAINTAINER Mike Turner <turner.mike@gmail.com>
 
@@ -9,7 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 # tools
-RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs npm
+RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs build-essential
 
 
 
