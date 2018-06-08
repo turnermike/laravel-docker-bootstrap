@@ -1,0 +1,75 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "app",
+      "host": {
+        "sourcePath": "/var/app/current/app"
+      }
+    },
+    {
+      "name": "apache-config",
+      "host": {
+        "sourcePath": "/var/app/current/httpd"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "app",
+      "_image": "php:7.1-apache",
+      "image": "744241446859.dkr.ecr.us-east-1.amazonaws.com/laravel-docker-bootstrap-app:latest",
+      "essential": true,
+      "memory": 256,
+      "mountPoints": [
+        {
+          "sourceVolume": "app",
+          "containerPath": "/var/www/public",
+          "readOnly": false
+        },
+        {
+          "sourceVolume": "apache-config",
+          "containerPath": "/etc/apache2/sites-enabled",
+          "readOnly": true
+        }
+      ],
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "environment": [
+        {
+          "name": "TEST_VAR",
+          "value": "my value xxx 123"
+        },
+        {
+          "name": "MYSQL_HOST",
+          "value": "ox45xks-dkgh.cseokarizhz1.us-east-1.rds.amazonaws.com"
+        },
+        {
+          "name": "MYSQL_DATABASE",
+          "value": "laraveldockerbootstrap"
+        },
+        {
+          "name": "MYSQL_USER",
+          "value": "d98knCeldk"
+        },
+        {
+          "name": "MYSQL_PASSWORD",
+          "value": "BVLfc9HcdSHe"
+        }
+      ],
+      "links": [
+        "redis"
+      ]
+    },
+    {
+      "name": "redis",
+      "image": "redis:3.2.5",
+      "essential": true,
+      "memory": 256
+    }    
+  ]  
+}
