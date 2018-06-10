@@ -1,8 +1,8 @@
 branch-defaults:
   master:
-    environment: Laraveldocker-staging
+    environment: Laraveldocker-staging-1
 environment-defaults:
-  Laraveldocker-staging:
+  Laraveldocker-staging-1:
     branch: null
     repository: null
 global:

@@ -30,7 +30,7 @@
         {
           "sourceVolume": "apache-config",
           "containerPath": "/etc/apache2/sites-enabled",
-          "readOnly": true
+          "readOnly": false
         }
       ],
       "portMappings": [
