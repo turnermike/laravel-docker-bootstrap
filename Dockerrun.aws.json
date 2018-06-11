@@ -12,12 +12,6 @@
       "host": {
         "sourcePath": "/var/app/current/httpd"
       }
-    },
-    {
-      "name": "env-file",
-      "host": {
-        "sourcePath": "/var/app/current/env"
-      }
     }
   ],
   "containerDefinitions": [
@@ -36,11 +30,6 @@
         {
           "sourceVolume": "apache-config",
           "containerPath": "/etc/apache2/sites-enabled",
-          "readOnly": false
-        },
-        {
-          "sourceVolume": "env-file",
-          "containerPath": "/var/www/public",
           "readOnly": false
         }
       ],
