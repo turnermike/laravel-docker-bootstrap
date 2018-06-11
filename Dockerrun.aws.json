@@ -4,15 +4,15 @@
     {
       "name": "app",
       "host": {
-        "sourcePath": "/var/app/current/app"
+        "sourcePath": "/var/app/current/app/*.*"
       }
     },
-    {
-      "name": "env-file",
-      "host": {
-        "sourcePath": "/var/app/current/env"
-      }
-    },    
+    // {
+    //   "name": "env-file",
+    //   "host": {
+    //     "sourcePath": "/var/app/current/env"
+    //   }
+    // },    
     {
       "name": "apache-config",
       "host": {
@@ -33,11 +33,11 @@
           "containerPath": "/var/www/public",
           "readOnly": false
         },
-        {
-          "sourceVolume": "env-file",
-          "containerPath": "/var/www/public",
-          "readOnly": false
-        },        
+        // {
+        //   "sourceVolume": "env-file",
+        //   "containerPath": "/var/www/public",
+        //   "readOnly": false
+        // },        
         {
           "sourceVolume": "apache-config",
           "containerPath": "/etc/apache2/sites-enabled",
