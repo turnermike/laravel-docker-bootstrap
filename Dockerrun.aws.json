@@ -4,7 +4,8 @@
     {
       "name": "app",
       "host": {
-        "sourcePath": "/var/app/current/app"
+        "sourcePath": "/var/app/current/app",
+        "sourcePath": "/var/app/current/env"
       }
     },
     {
