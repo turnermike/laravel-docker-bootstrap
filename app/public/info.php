@@ -26,41 +26,42 @@ $mysql_password = getenv('MYSQL_PASSWORD');
 $testVar = getenv('TEST_VAR');
 
 
-echo '$db_host: ' . $db_host;
-echo '$db_db: ' . $db_db;
-echo '$db_user: ' . $db_user;
-echo '$db_password: ' . $db_password;
+echo '<br />$db_host: ' . $db_host;
+echo '<br />$db_db: ' . $db_db;
+echo '<br />$db_user: ' . $db_user;
+echo '<br />$db_password: ' . $db_password;
 
-echo '$mysql_host: ' . $mysql_host;
-echo '$mysql_db: ' . $mysql_db;
-echo '$mysql_user: ' . $mysql_user;
-echo '$mysql_password: ' . $mysql_password;
+echo '<br />$mysql_host: ' . $mysql_host;
+echo '<br />$mysql_db: ' . $mysql_db;
+echo '<br />$mysql_user: ' . $mysql_user;
+echo '<br />$mysql_password: ' . $mysql_password;
 
-echo '<br>testVar: ' . $testVar;
-echo '<br><br>';
+echo '<br />testVar: ' . $testVar;
+echo '<br /><br />';
 
 
 // $dsn = 'mysql:dbname=test_php_app;host=db';
 // $user = 'test_app_user';
 // $password = 'test_app_password';
-$dsn = 'mysql:dbname=' . $db . ';host=' . $host;
-$user = $user;
-$password = $password;
+$dsn = 'mysql:dbname=' . $db_db . ';host=' . $db_host;
+$user = $db_user;
+$password = $db_password;
 
 try {
     $dbh = new PDO($dsn, $user, $password);
-    echo '<br>Connection successfull.<br><br>';
-
+    
     $statement = $dbh->prepare("SELECT * FROM test");
     $statement->execute();
 
+    echo '<br />Connection successfull.<br /><br />';
+
     echo "<pre>";
-    echo "table named 'test':<br><br>";
-    var_dump($statement->fetchall());
-    echo "</pre>";
+    echo "table named 'test':<br /><br />";
+    var_dump($statement->fetchAll());
+    echo "</pre><br />";
 
 } catch (PDOException $e) {
-    echo '<br>Connection failed: ' . $e->getMessage() . '<br><br>';
+    echo '<br />Connection failed: ' . $e->getMessage() . '<br /><br />';
     echo '<pre>';
     var_dump($e);
     echo '</pre>';
