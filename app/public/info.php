@@ -8,6 +8,10 @@ error_reporting(1);
    PDO
    ========================================================================== */
 
+echo '<hr />';
+echo 'pdo';
+echo '<hr /><br />';
+
 // get db creds from environment variables
 $host =     getenv('MYSQL_HOST');
 $db =       getenv('MYSQL_DATABASE');
@@ -46,6 +50,9 @@ try {
 
 } catch (PDOException $e) {
     echo '<br>Connection failed: ' . $e->getMessage() . '<br><br>';
+    echo '<pre>';
+    var_dump($e);
+    echo '</pre>';
 }
 
 foreach($dbh->query("Show variables like '%char%'") as $row) {
@@ -58,27 +65,29 @@ foreach($dbh->query("Show variables like '%char%'") as $row) {
    mysql_connect
    ========================================================================== */
 
+echo '<hr />';
+echo 'mysql_connect';
+echo '<hr /><br />';
+
+//$link = mysql_connect('localhost', 'root', 'root');
+$link = mysql_connect($host, $user, $password);
+
+if (!$link) {
+    die('<br />Could not connect: ' . mysql_error());
+}
+echo '<br />Connected successfully';
 
 
-// //$link = mysql_connect('localhost', 'root', 'root');
-// $link = mysql_connect('steelhousedbcluster.cluster-cseokarizhz1.us-east-1.rds.amazonaws.com', 'realinteractive', 'O#43Sf%!aE987');
+$db_selected = mysql_select_db($db, $link);
 
-// if (!$link) {
-//     die('<br />Could not connect: ' . mysql_error());
-// }
-// echo '<br />Connected successfully';
+if(!$db_selected){
+ die('<br />Error: ' . mysql_error());
+}
 
-
-// $db_selected = mysql_select_db('steelhouse_website', $link);
-
-// if(!$db_selected){
-//  die('<br />Could not use backbone_address_book: ' . mysql_error());
-// }
-
-// echo '<br />Selected DB Successfully';
+echo '<br />Selected DB Successfully';
 
 
-// mysql_close($link);
+mysql_close($link);
 
 
 
