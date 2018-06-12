@@ -42,22 +42,22 @@
       "environment": [
         {
           "name": "TEST_VAR",
-          "value": "my value xxx 123"
+          "value": "my value ABC 123"
         },
         {
-          "name": "MYSQL_HOST",
+          "name": "DB_HOST",
           "value": "ox45xks-dkgh.cseokarizhz1.us-east-1.rds.amazonaws.com"
         },
         {
-          "name": "MYSQL_DATABASE",
+          "name": "DB_DATABASE",
           "value": "laraveldockerbootstrap"
         },
         {
-          "name": "MYSQL_USER",
+          "name": "DB_USERNAME",
           "value": "d98knCeldk"
         },
         {
-          "name": "MYSQL_PASSWORD",
+          "name": "DB_PASSWORD",
           "value": "BVLfc9HcdSHe"
         }
       ],

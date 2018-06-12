@@ -13,18 +13,29 @@ echo 'pdo';
 echo '<hr /><br />';
 
 // get db creds from environment variables
-$host =     getenv('MYSQL_HOST');
-$db =       getenv('MYSQL_DATABASE');
-$user =     getenv('MYSQL_USER');
-$password = getenv('MYSQL_PASSWORD');
+$db_host =        getenv('DB_HOST');
+$db_db =          getenv('DB_DATABASE');
+$db_user =        getenv('DB_USERNAME');
+$db_password =    getenv('DB_PASSWORD');
+
+$mysql_host =     getenv('MYSQL_HOST');
+$mysql_db =       getenv('MYSQL_DATABASE');
+$mysql_user =     getenv('MYSQL_USERNAME');
+$mysql_password = getenv('MYSQL_PASSWORD');
 
 $testVar = getenv('TEST_VAR');
 
-echo '<br>host: ' . $host;
-echo '<br>db: ' . $db;
-echo '<br>user: ' . $user;
-echo '<br>password: ' . $password;
-echo '<br><br>';
+
+echo '$db_host: ' . $db_host;
+echo '$db_db: ' . $db_db;
+echo '$db_user: ' . $db_user;
+echo '$db_password: ' . $db_password;
+
+echo '$mysql_host: ' . $mysql_host;
+echo '$mysql_db: ' . $mysql_db;
+echo '$mysql_user: ' . $mysql_user;
+echo '$mysql_password: ' . $mysql_password;
+
 echo '<br>testVar: ' . $testVar;
 echo '<br><br>';
 
@@ -65,29 +76,29 @@ foreach($dbh->query("Show variables like '%char%'") as $row) {
    mysql_connect
    ========================================================================== */
 
-echo '<hr />';
-echo 'mysql_connect';
-echo '<hr /><br />';
+// echo '<hr />';
+// echo 'mysql_connect';
+// echo '<hr /><br />';
 
-//$link = mysql_connect('localhost', 'root', 'root');
-$link = mysql_connect($host, $user, $password);
+// //$link = mysql_connect('localhost', 'root', 'root');
+// $link = mysql_connect($host, $user, $password);
 
-if (!$link) {
-    die('<br />Could not connect: ' . mysql_error());
-}
-echo '<br />Connected successfully';
-
-
-$db_selected = mysql_select_db($db, $link);
-
-if(!$db_selected){
- die('<br />Error: ' . mysql_error());
-}
-
-echo '<br />Selected DB Successfully';
+// if (!$link) {
+//     die('<br />Could not connect: ' . mysql_error());
+// }
+// echo '<br />Connected successfully';
 
 
-mysql_close($link);
+// $db_selected = mysql_select_db($db, $link);
+
+// if(!$db_selected){
+//  die('<br />Error: ' . mysql_error());
+// }
+
+// echo '<br />Selected DB Successfully';
+
+
+// mysql_close($link);
 
 
 
