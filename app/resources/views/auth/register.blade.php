@@ -7,6 +7,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
 
+                <?php
+                    echo '<br />host: ' . getenv('DB_HOST');
+                    echo '<br />db name: ' . getenv('DB_DATABASE');
+                    echo '<br />user: ' . getenv('DB_USERNAME');
+                    echo '<br />password: ' . getenv('DB_PASSWORD');
+                ?>
+
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
