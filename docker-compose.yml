@@ -1,10 +1,10 @@
 version: '2'
 services:
   app:                              # php 7.1-apache
-    # image: 744241446859.dkr.ecr.us-east-1.amazonaws.com/laravel-docker-bootstrap-app:latest
-    build:
-      context: ./
-      dockerfile: app.dockerfile
+    image: 744241446859.dkr.ecr.us-east-1.amazonaws.com/laravel-docker-bootstrap-app:latest
+    # build:
+    #   context: ./
+    #   dockerfile: app.dockerfile
     container_name: laravelbootstrap-app
     working_dir: /var/www
     volumes:
