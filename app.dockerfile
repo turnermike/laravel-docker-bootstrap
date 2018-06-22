@@ -12,8 +12,6 @@ RUN apt-get update
 # tools
 RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs build-essential
 
-
-
 # copy ssl certificate/key
 COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
 COPY ./httpd/server.key /etc/apache2/ssl/server.key
@@ -36,10 +34,6 @@ RUN a2ensite default-ssl
 
 # restart apache
 RUN service apache2 restart
-
-
-
-
 
 # enable mod_rewrite
 RUN a2enmod rewrite
