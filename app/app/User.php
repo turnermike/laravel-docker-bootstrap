@@ -56,6 +56,9 @@ class User extends Authenticatable
 
     /**
      * Get the indexable data array for the model.
+     * Run the following command to flush/index
+     * php artisan scout:flush App\\User
+     * php artisan tntsearch:import App\\User
      *
      * @return array
      */
