@@ -57,6 +57,7 @@
     "what-input": "^5.0.3"
   },
   "dependencies": {
+    "easy-autocomplete": "^1.3.5",
     "lang.js": "^1.1.12"
   }
 }
