@@ -7,6 +7,12 @@
             <div class="panel panel-default">
                 <h1>{{ Lang::get('home.title') }}</h1>
 
+                @php
+                    echo '<pre>';
+                    var_dump($search_results);
+                    echo '</pre>';
+                @endphp
+
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">

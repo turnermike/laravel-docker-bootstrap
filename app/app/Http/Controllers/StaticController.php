@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App;
 use LaravelLocalization;
+use App\User;
 
 
 class StaticController extends Controller
@@ -33,7 +34,26 @@ class StaticController extends Controller
      */
     public function index(Request $request){
 
-        return view('home');
+        $all_results = User::search('Mike')->get(10);
+
+        $all_emails = array();
+
+        foreach($all_results as $result){
+
+            // echo '<pre>';
+            // var_dump($result->email);
+            // echo '</pre>';
+
+            array_push($all_emails, $result->email);
+
+        }
+
+        // echo '<pre>';
+        // var_dump($all_emails);
+        // echo '</pre>';
+
+        return view('home')
+                ->with('search_results', $all_emails);
 
     }
 

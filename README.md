@@ -33,6 +33,8 @@ Localization
 2 Factor Authentication via Google Authenticator
 [https://github.com/antonioribeiro/google2fa](https://github.com/antonioribeiro/google2fa)
 
+Laravel Scout and TNTSearch
+[https://github.com/teamtnt/laravel-scout-tntsearch-driver](https://github.com/teamtnt/laravel-scout-tntsearch-driver)
 
 
 ## Requirements
@@ -113,7 +115,6 @@ npm run build:prod
 
 
 
-
 # 2 Factor Authentication
 Using `pragmarx/google2fa-laravel` and `bacon/bacon-qr-code` packages via composer. User will need to install Google Authenticator on
 thier mobile device.
@@ -144,6 +145,13 @@ This action will invalidate the previous secret key.
 A new secret has been generated for turner.mike@gmail.com
 The new secret is: QLNEWONFWIZVGGT6
 ```
+
+
+
+# Search
+Use the following command to update the search index:
+```php artisan tntsearch:import App\\User```
+
 
 
 
