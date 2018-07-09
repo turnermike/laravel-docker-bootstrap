@@ -61,9 +61,19 @@ class User extends Authenticatable
      */
     public function toSearchableArray()
     {
-        $array = $this->toArray();
+        $array = $this->toArray();      // indexes all columns
 
-        // Customize array...
+        // $search = collect($this->toArray())->only([     // only index specific columns
+        //     'id',
+        //     'fio_id',
+        //     'f_name',
+        //     'l_name',
+        //     'store_name',
+        //     'email',
+        //     'username',
+        //     'tm_num',
+        //     'username2'
+        // ])->toArray();
 
         return $array;
     }
