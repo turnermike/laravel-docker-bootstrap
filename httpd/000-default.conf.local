@@ -7,9 +7,9 @@
     # value is not decisive as it is used as a last resort host regardless.
     # However, you must set it for any further virtual host explicitly.
 
-    ServerName hihatconsulting.com
+    ServerName laravel-docker-bootstrap.test
     ServerAdmin turner.mike@gmail.com
-    DocumentRoot /var/www/public/public
+    DocumentRoot /var/www/public
     DirectoryIndex index.php
 
     # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
