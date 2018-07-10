@@ -12,13 +12,13 @@ RUN apt-get update
 # tools
 RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs build-essential apt-utils wget
 
-# copy ssl certificate/key
-COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
-COPY ./httpd/server.key /etc/apache2/ssl/server.key
-
 # apache config - backup the original apache config in container and copy custom file
 RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.orig
 COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+# # copy ssl certificate/key
+# COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
+# COPY ./httpd/server.key /etc/apache2/ssl/server.key
 
 # # apache ssl config - backup the original apache ssl config in the container and copy custom file
 # RUN cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.orig
