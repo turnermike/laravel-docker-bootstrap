@@ -1,4 +1,4 @@
-FROM php:7.1-apache 
+FROM php:7.1-apache
 # uses debian:jessie
 
 MAINTAINER Mike Turner <turner.mike@gmail.com>
@@ -20,20 +20,20 @@ COPY ./httpd/server.key /etc/apache2/ssl/server.key
 RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.orig
 COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
 
-# apache ssl config - backup the original apache ssl config in the container and copy custom file
-RUN cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.orig
-COPY ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+# # apache ssl config - backup the original apache ssl config in the container and copy custom file
+# RUN cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.orig
+# COPY ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 
-# enable ssl
-RUN a2enmod ssl
+# # enable ssl
+# RUN a2enmod ssl
 
-# enable the custom ssl vhost
-RUN a2ensite default-ssl
-# reload apache
-# RUN service apache2 reload
+# # enable the custom ssl vhost
+# RUN a2ensite default-ssl
+# # reload apache
+# # RUN service apache2 reload
 
-# restart apache
-RUN service apache2 restart
+# # restart apache
+# RUN service apache2 restart
 
 # enable mod_rewrite
 RUN a2enmod rewrite
@@ -63,7 +63,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # open ports
 EXPOSE 80
-EXPOSE 443
+# EXPOSE 443
+
+# restart apache
+RUN service apache2 restart
 
 
 # ENTRYPOINT echo 'APACHE_LOG_DIR: ' $APACHE_LOG_DIR
