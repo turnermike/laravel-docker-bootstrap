@@ -96,9 +96,9 @@ return [
             'max_expansions' => 50,
             'distance' => 2
         ],
-        'asYouType' => false,
+        'asYouType' => true,
         'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),
-    ],    
+    ],
 
     // 'tntsearch' => [
     //     'storage'  => storage_path(), //place where the index files will be stored
@@ -110,6 +110,6 @@ return [
     //     ],
     //     'asYouType' => false,
     //     'searchBoolean' => env('TNTSEARCH_BOOLEAN', true),
-    // ],    
+    // ],
 
 ];

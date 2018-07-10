@@ -33,6 +33,9 @@ Route::group(
         Route::get('/contact',          ['as' => 'contact',             'uses' => 'StaticController@contact']);
         Route::get('/foundationtest',   ['as' => 'foundationtest',      'uses' => 'StaticController@foundationtest']);
 
+        // get search field autocomplete data
+        Route::post('/get-users',                                       ['uses' => 'FormController@get_users']);
+
         // 2fa - registration
         Route::get('/complete-registration', 'Auth\RegisterController@completeRegistration');
         // 2fa - login

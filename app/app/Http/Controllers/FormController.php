@@ -11,9 +11,49 @@ use Config;
 use App;
 use Validator;
 use DB;
+use App\User;
 
 class FormController extends Controller
 {
+
+
+    /**
+     * Form submission example
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function get_users(Request $request){
+
+        // get search phrase
+        $phrase = $request->input('phrase');
+
+        if(isset($phrase)){
+
+            // get all search results
+            $results = \App\User::search($phrase)->get();
+
+            // build array of all searchable fields
+            $users = array();
+            foreach($results as $key => $result){
+                $users[$key]['name']      = $result->name;
+                $users[$key]['email']     = $result->email;
+            }
+
+            // echo '<pre>';
+            // var_dump($users);
+            // echo '</pre>';
+
+            return json_encode($users);
+
+        }else{
+
+            return json_encode(array('error' => 'No search phrase provided.'));
+
+        }
+
+
+
+    }
 
 
     /**

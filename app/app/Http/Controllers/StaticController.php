@@ -34,26 +34,7 @@ class StaticController extends Controller
      */
     public function index(Request $request){
 
-        $all_results = User::search('Mike')->get(10);
-
-        $all_emails = array();
-
-        foreach($all_results as $result){
-
-            // echo '<pre>';
-            // var_dump($result->email);
-            // echo '</pre>';
-
-            array_push($all_emails, $result->email);
-
-        }
-
-        // echo '<pre>';
-        // var_dump($all_emails);
-        // echo '</pre>';
-
-        return view('home')
-                ->with('search_results', $all_emails);
+        return view('home');
 
     }
 

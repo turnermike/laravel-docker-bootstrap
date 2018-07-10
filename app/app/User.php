@@ -12,7 +12,7 @@ class User extends Authenticatable
 
     use Searchable;
 
-    public $asYouType = false;
+    public $asYouType = true;
 
     /**
      * The attributes that are mass assignable.
