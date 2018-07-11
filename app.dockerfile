@@ -63,7 +63,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # open ports
 EXPOSE 80
-# EXPOSE 443
+EXPOSE 443
 
 # restart apache
 RUN service apache2 restart
