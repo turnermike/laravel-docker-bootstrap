@@ -9,7 +9,7 @@ global:
   application_name: LaravelDocker
   default_ec2_keyname: mturner-useast1
   default_platform: arn:aws:elasticbeanstalk:us-east-1::platform/Multi-container Docker
-    running on 64bit Amazon Linux/2.10.0
+    running on 64bit Amazon Linux/2.11.0
   default_region: us-east-1
   include_git_submodules: true
   instance_profile: null
