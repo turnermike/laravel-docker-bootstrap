@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
             // $url->forceSchema('https');
         // }
 
-        Schema::defaultStringLength(191);
+        // Schema::defaultStringLength(191);
     }
 
     /**
