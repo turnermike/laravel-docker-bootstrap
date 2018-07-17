@@ -9,7 +9,7 @@ DirectoryIndex index.php
     RewriteEngine On
 
     # Force SSL
-    RewriteCond %{SERVER_PORT} 8081 
+    RewriteCond %{SERVER_PORT} 8081
     RewriteRule ^(.*)$ https://%{SERVER_NAME}/$1 [R,L]
 
     # Handle Authorization Header
@@ -37,7 +37,7 @@ DirectoryIndex index.php
     RewriteRule .? - [L]
 
     RewriteRule .? %{ENV:BASE}/index.php [L]
-    
+
 </IfModule>
 
 
