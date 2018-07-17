@@ -13,8 +13,8 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs build-essential apt-utils wget
 
 # apache config - backup the original apache config in container and copy custom file
-RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.orig
-COPY ./httpd/000-default.conf /etc/apache2/sites-available/000-default.conf
+RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf.orig
+COPY ./httpd/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 # # copy ssl certificate/key
 # COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
@@ -50,7 +50,6 @@ COPY ./php/php.ini /usr/local/etc/php
 
 # clean up
 RUN apt-get autoremove && apt-get clean
-
 
 # download/install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
