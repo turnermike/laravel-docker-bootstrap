@@ -19,21 +19,21 @@ RUN mkdir /var/www/public
 RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf.orig
 COPY ./httpd/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
-# # copy ssl certificate/key
-# COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
-# COPY ./httpd/server.key /etc/apache2/ssl/server.key
+# copy ssl certificate/key
+COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
+COPY ./httpd/server.key /etc/apache2/ssl/server.key
 
-# # apache ssl config - backup the original apache ssl config in the container and copy custom file
-# RUN cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.orig
-# COPY ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+# apache ssl config - backup the original apache ssl config in the container and copy custom file
+RUN cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.orig
+COPY ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 
-# # enable ssl
-# RUN a2enmod ssl
+# enable ssl
+RUN a2enmod ssl
 
-# # enable the custom ssl vhost
-# RUN a2ensite default-ssl
+# enable the custom ssl vhost
+RUN a2ensite default-ssl
 
-# # reload apache
+# reload apache
 # RUN service apache2 reload
 
 # restart apache
@@ -70,7 +70,7 @@ RUN apt-get autoremove && apt-get clean
 
 # open ports
 EXPOSE 80
-# EXPOSE 443
+EXPOSE 443
 
 # restart apache
 RUN service apache2 restart
