@@ -10,7 +10,10 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 # tools
-RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs build-essential apt-utils wget
+RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs build-essential apt-utils wget iputils-ping
+
+# create public dir (docker-compose gives an error if it does not previously exist)
+RUN mkdir /var/www/public
 
 # apache config - backup the original apache config in container and copy custom file
 RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf.orig
@@ -29,14 +32,18 @@ COPY ./httpd/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 # # enable the custom ssl vhost
 # RUN a2ensite default-ssl
+
 # # reload apache
-# # RUN service apache2 reload
+# RUN service apache2 reload
 
 # restart apache
 RUN service apache2 restart
 
 # enable mod_rewrite
 RUN a2enmod rewrite
+
+# update package lists from their repositories
+RUN apt-get update
 
 # install php modules
 RUN apt-get install -y libmcrypt-dev libpng-dev \
@@ -48,8 +55,6 @@ RUN apt-get install -y libmcrypt-dev libpng-dev \
 # copy php config
 COPY ./php/php.ini /usr/local/etc/php
 
-# clean up
-RUN apt-get autoremove && apt-get clean
 
 # download/install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -59,6 +64,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # switch to new user
 # USER docker
+
+# clean up
+RUN apt-get autoremove && apt-get clean
 
 # open ports
 EXPOSE 80
