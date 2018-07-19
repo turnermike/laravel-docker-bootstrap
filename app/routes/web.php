@@ -31,6 +31,7 @@ Route::group(
         Route::get('/home',             ['as' => 'home',                'uses' => 'StaticController@index']);
         Route::get('/about',            ['as' => 'about',               'uses' => 'StaticController@about']);
         Route::get('/contact',          ['as' => 'contact',             'uses' => 'StaticController@contact']);
+        Route::get('/html-table-demo',  ['as' => 'htmltabledemo',       'uses' => 'StaticController@html_table_demo']);
         Route::get('/foundationtest',   ['as' => 'foundationtest',      'uses' => 'StaticController@foundationtest']);
 
         // get search field autocomplete data

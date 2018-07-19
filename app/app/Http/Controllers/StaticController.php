@@ -75,6 +75,32 @@ class StaticController extends Controller
     }
 
     /**
+     * Generate an HTML table from database
+     *
+     * Laravel package: https://github.com/lloricode/laravel-html-table
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function html_table_demo(Request $request){
+
+        $table_data = \App\User::getRepsPointsTransactions();
+
+        $table_headers = [
+            'ID', 'Name', 'Email', 'Created At', 'Updated At'
+        ];
+
+        $table_attributes = 'class="users-table"';
+
+        return view('html-table')
+                ->with('table_headers', $table_headers)
+                ->with('table_attributes', $table_attributes)
+                ->with('table_data', $table_data->items())
+                ->with('all_table_data', $table_data);
+
+
+    }
+
+    /**
      * Display the foundation test view
      *
      * @return \Illuminate\Http\Response

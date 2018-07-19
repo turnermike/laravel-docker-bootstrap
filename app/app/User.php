@@ -33,6 +33,40 @@ class User extends Authenticatable
     ];
 
     /**
+     * Generate HTML table using Laravel pagination
+     *
+     * @return object
+     */
+    public static function getRepsPointsTransactions(){
+
+        $user = Session::get('user');
+
+        if(isset($user->sr_id)){
+
+
+            // $results = DB::select("SELECT created_at,
+            //                     CASE WHEN points_earned IS NOT NULL THEN 'Points Earned' ELSE 'Points Redeemed' END AS 'desc',
+            //                     CASE WHEN points_earned IS NOT NULL THEN points_earned ELSE points_redeemed END AS 'qty',
+            //                     IFNULL((SELECT SUM(points_earned) - SUM(points_redeemed) FROM sales_reps_points where id <= p.id), points_earned) AS 'balance'
+            //                     FROM sales_reps_points p
+            //                     WHERE sr_id = '$user->sr_id' ORDER BY created_at DESC");
+
+            $request = request();
+            $results = \App\User::arrayPaginator($results, $request);
+
+            // echo '<pre>';
+            // var_dump($results);
+            // echo '</pre>';
+
+            // return $results->items();
+            return $results;
+
+        }
+
+    }
+
+
+    /**
      * Ecrypt the user's google_2fa secret.
      *
      * @param  string  $value
