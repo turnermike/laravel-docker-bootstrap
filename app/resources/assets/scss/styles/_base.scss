@@ -47,6 +47,11 @@ sub, sup{
   max-width: $grid-container;
 }
 
+.pagination{
+  a{
+    color: grey;
+  }
+}
 
 
 

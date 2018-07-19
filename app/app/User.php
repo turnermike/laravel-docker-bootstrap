@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Scout\Searchable;
+use DB;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class User extends Authenticatable
 {
@@ -39,29 +42,30 @@ class User extends Authenticatable
      */
     public static function getRepsPointsTransactions(){
 
-        $user = Session::get('user');
+        $results = DB::select("SELECT id, name, email, created_at, updated_at FROM users");
 
-        if(isset($user->sr_id)){
+        $request = request();
+        $results = \App\User::arrayPaginator($results, $request);
+
+        return $results;
+
+    }
 
 
-            // $results = DB::select("SELECT created_at,
-            //                     CASE WHEN points_earned IS NOT NULL THEN 'Points Earned' ELSE 'Points Redeemed' END AS 'desc',
-            //                     CASE WHEN points_earned IS NOT NULL THEN points_earned ELSE points_redeemed END AS 'qty',
-            //                     IFNULL((SELECT SUM(points_earned) - SUM(points_redeemed) FROM sales_reps_points where id <= p.id), points_earned) AS 'balance'
-            //                     FROM sales_reps_points p
-            //                     WHERE sr_id = '$user->sr_id' ORDER BY created_at DESC");
+    /**
+     * Breaks up an array for use with Laravel Pagination
+     *
+     *
+     * @return array
+     */
+    public static function arrayPaginator($array, $request){
 
-            $request = request();
-            $results = \App\User::arrayPaginator($results, $request);
+        $page = Input::get('page', 1);
+        $perPage = 3;
+        $offset = ($page * $perPage) - $perPage;
 
-            // echo '<pre>';
-            // var_dump($results);
-            // echo '</pre>';
-
-            // return $results->items();
-            return $results;
-
-        }
+        return new LengthAwarePaginator(array_slice($array, $offset, $perPage, true), count($array), $perPage, $page,
+            ['path' => $request->url(), 'query' => $request->query()]);
 
     }
 
