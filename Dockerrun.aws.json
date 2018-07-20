@@ -6,7 +6,7 @@
       "host": {
         "sourcePath": "/var/app/current/app"
       }
-    },  
+    },
     {
       "name": "apache-config",
       "host": {
@@ -26,7 +26,7 @@
           "sourceVolume": "app",
           "containerPath": "/var/www/public",
           "readOnly": false
-        },       
+        },
         {
           "sourceVolume": "apache-config",
           "containerPath": "/etc/apache2/sites-enabled",
@@ -46,7 +46,7 @@
         },
         {
           "name": "DB_HOST",
-          "value": "ox45xks-dkgh.cseokarizhz1.us-east-1.rds.amazonaws.com"
+          "value": "laraveldockerbootstrap.cseokarizhz1.us-east-1.rds.amazonaws.com"
         },
         {
           "name": "DB_DATABASE",
@@ -70,6 +70,6 @@
       "image": "redis:3.2.5",
       "essential": true,
       "memory": 256
-    }    
-  ]  
+    }
+  ]
 }
