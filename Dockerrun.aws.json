@@ -18,7 +18,8 @@
     {
       "name": "app",
       "_image": "php:7.1-apache",
-      "image": "744241446859.dkr.ecr.us-east-1.amazonaws.com/laravel-docker-bootstrap-app:latest",
+      "_image": "744241446859.dkr.ecr.us-east-1.amazonaws.com/laravel-docker-bootstrap-app:latest",
+      "image": "744241446859.dkr.ecr.us-east-1.amazonaws.com/laravel-docker-bootstrap-app:local-ssl",
       "essential": true,
       "memory": 256,
       "mountPoints": [
