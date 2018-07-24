@@ -12,4 +12,4 @@ yarn-error.log
 .env
 
 # scout search indexes
-/storage/*.index
+# /storage/*.index
