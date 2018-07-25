@@ -70,7 +70,7 @@ RUN apt-get autoremove && apt-get clean
 
 # open ports
 EXPOSE 80
-EXPOSE 443
+#EXPOSE 443
 
 # restart apache
 RUN service apache2 restart
