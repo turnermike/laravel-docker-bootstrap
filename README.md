@@ -114,6 +114,19 @@ npm run build:prod
 ```
 
 
+## Installing New NPM Packages
+When adding a new NPM package, we can install them as development dependency or regular project dependency.
+
+If the package is requried for anything development related, most likely Webpack use:
+```
+npm install --require-dev <package_name>
+```
+
+If the package is required for the app it's self, please use:
+```
+npm install --require <package_name>
+```
+
 
 # 2 Factor Authentication
 Using `pragmarx/google2fa-laravel` and `bacon/bacon-qr-code` packages via composer. User will need to install Google Authenticator on
