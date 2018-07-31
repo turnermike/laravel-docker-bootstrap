@@ -82,7 +82,6 @@ module.exports = {
       // SASS/CSS
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -102,7 +101,10 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
-                includePaths: [path.resolve(__dirname, '../app/resources/assets/scss')],
+                includePaths: [
+                  path.resolve(__dirname, '../app/resources/assets/scss'),
+                  // path.resolve(__dirname, './node_modules'),
+                ],
                 sourceMap: ifProd(false, true),
                 sourceComments: ifProd(false, true),
                 outputStyle: ifProd('compact', 'expanded'),                             // code formating for css (compressed, expanded, nested, compact)
@@ -118,7 +120,7 @@ module.exports = {
       ifProd({
         test: /\.(woff|woff2|ttf|eot|svg)$/,
         include: [path.resolve(__dirname, '../app/public/fonts')],
-        exclude: /node_modules/,
+        exclude: [path.resolve(__dirname, './node_modules')],
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[ext]',
@@ -131,7 +133,7 @@ module.exports = {
       ifNotProd({
         test: /\.(woff|woff2|ttf|eot|svg)$/,
         include: [path.resolve(__dirname, '../app/public/fonts')],
-        exclude: /node_modules/,
+        exclude: [path.resolve(__dirname, './node_modules')],
         loader: 'url-loader'
       }),
 
@@ -173,8 +175,11 @@ module.exports = {
       // IMAGES (DEV)
       ifNotProd({
         test: /\.(png|svg|jpg|gif)$/,
-        include: [path.resolve(__dirname, '../app/public/images')],
-        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, '../app/public/images'),
+          // path.resolve(__dirname, './node_modules/owl.carousel'),
+        ],
+        // exclude: [path.resolve(__dirname, './node_modules')],
         loader: 'url-loader',
         // options: {
         //   name: 'images/[name].[ext]',
@@ -185,12 +190,8 @@ module.exports = {
       // JS/ES6
       {
         test: /\.(js(x?)|es6)$/,
-        exclude: [
-          path.resolve(__dirname, './node-modules')
-        ],
-        include: [
-          path.resolve(__dirname, '../app/resources/assets/js')
-        ],
+        include: [path.resolve(__dirname, '../app/resources/assets/js')],
+        exclude: [path.resolve(__dirname, './node_modules')],
         use: [
           {
             loader: 'babel-loader',
@@ -232,13 +233,14 @@ module.exports = {
     // save sass to external css file, rather than embedding in <style> tag
     new ExtractTextPlugin({
       filename: 'app.css',
+      publicPath: 'output/',
       allChunks: true,                                              // generate a single css file for whole bundle
     }),
 
     // Source Maps
     ifNotProd(new webpack.SourceMapDevToolPlugin({
       filename: '[name].js.map',
-      exclude: ['vendor.js']
+      exclude: ['vendor.js', /node_modules/]
     })),
 
     // js
