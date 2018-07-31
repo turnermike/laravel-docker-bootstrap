@@ -43,8 +43,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li {{ set_active([LaravelLocalization::getCurrentLocale() . '/login']) }}><a href="{{ route('login') }}">Login</a></li>
+                            <li {{ set_active([LaravelLocalization::getCurrentLocale() . '/register']) }}><a href="{{ route('register') }}">Register</a></li>
                         @else
 
                         @if(Auth::check())
