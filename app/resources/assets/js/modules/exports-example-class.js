@@ -6,6 +6,11 @@ function Cat(name, age) {
     this.age = age;
 }
 
+// class method
+Cat.prototype.exampleMethod = function(param) {
+    console.log('Param passed to exampleMethod: ', param);
+}
+
 module.exports = {
     Cat: Cat
 }

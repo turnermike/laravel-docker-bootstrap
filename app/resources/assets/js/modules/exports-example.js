@@ -1,3 +1,12 @@
+/**
+ * Tutorial:
+ * http://stackabuse.com/how-to-use-module-exports-in-node-js/
+ *
+ *
+ */
+
+
+
 
 // import the Cat module
 let cats = require('./exports-example-class.js');
@@ -10,3 +19,7 @@ let cat2 = new Cat("Chuck Norris", 6);
 // Let's find out the names and ages of cats in the class
 console.log("There are two cats in the class, " + cat1.name + " and " + cat2.name + ".");
 console.log("Manny is " + cat1.age + " years old " +  " and Lizzie is " + cat2.age + " years old.");
+
+// call a method with parameter
+let methodTest = new Cat();
+methodTest.exampleMethod('!my test param!');
