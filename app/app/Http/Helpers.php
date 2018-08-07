@@ -39,7 +39,14 @@ function strip_url_parameter($url, $param) {
     parse_str($url['query'], $parsed_params);
     unset($parsed_params[$param]);
     $new_params = http_build_query($parsed_params);
-    $new_target = $url['path'] . '?' . $new_params;
+
+    if(count($parsed_params)){
+        // append remaining parameters
+        $new_target = $url['path'] . '?' . $new_params;
+    }else{
+        // no more params, return url without "?"
+        $new_target = $url['path'];
+    }
 
     return $new_target;
 
