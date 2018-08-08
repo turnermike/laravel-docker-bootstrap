@@ -172,19 +172,29 @@ module.exports = {
         ]
       }),
 
+      // // IMAGES (DEV)
+      // ifNotProd({
+      //   test: /\.(png|svg|jpg|gif)$/,
+      //   include: [
+      //     path.resolve(__dirname, '../app/public/images'),
+      //     // path.resolve(__dirname, './node_modules/owl.carousel'),
+      //   ],
+      //   // exclude: [path.resolve(__dirname, './node_modules')],
+      //   loader: 'url-loader',
+      //   // options: {
+      //   //   name: 'images/[name].[ext]',
+      //   //   // limit: 100000
+      //   // }
+      // }),
+
       // IMAGES (DEV)
       ifNotProd({
         test: /\.(png|svg|jpg|gif)$/,
-        include: [
-          path.resolve(__dirname, '../app/public/images'),
-          // path.resolve(__dirname, './node_modules/owl.carousel'),
-        ],
-        // exclude: [path.resolve(__dirname, './node_modules')],
         loader: 'url-loader',
-        // options: {
-        //   name: 'images/[name].[ext]',
-        //   // limit: 100000
-        // }
+        options: {
+          name: 'images/[name].[ext]',
+          limit: 0  // do not generate new files
+        }
       }),
 
       // JS/ES6
