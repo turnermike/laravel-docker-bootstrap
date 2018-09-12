@@ -76,6 +76,18 @@ EXPOSE 80
 RUN service apache2 restart
 
 
-# ENTRYPOINT echo 'APACHE_LOG_DIR: ' $APACHE_LOG_DIR
 
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+COPY docker-entrypoint.sh /usr/local/bin/
+# RUN set -xe \
+#     chown -R www-data:www-data . \
+#     && chmod +x /usr/local/bin/docker-entrypoint.sh
+
+RUN chmod 775 /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+# CMD ["./usr/local/bin/docker-entrypoint.sh"]
+
+# CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]

@@ -20,7 +20,7 @@ services:
       - "DB_DATABASE=laravel_docker_bootstrap"
       - "DB_USERNAME=bootstrap"
       - "DB_PASSWORD=hEBg9W4RTXmg"
-  db:                               # mysql 5.6
+  db:                                                               # mysql 5.6
     image: mysql:5.6
     container_name: laravelbootstrap-mysql
     volumes:
@@ -34,7 +34,6 @@ services:
       - "3386"
       - "3306"
     ports:
-      - "3386:3306"               # host port:container port
-      # - 3306:3306
+      - "3386:3306"                                                 # host port:container port
 volumes:
   .dbdata:
