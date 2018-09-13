@@ -1,0 +1,5 @@
+version: '2'
+services:
+  app:                              # php 7.1-apache
+    env_file:
+      - ./app/.env.staging

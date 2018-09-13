@@ -50,14 +50,27 @@ Laravel Scout and TNTSearch
 # Project Setup
 
 ## Docker
-Start Docker in detached mode for a local development.
-```
-docker-compose up -d
-```
-If containers have not yet been built. Build and start in detached mode.
+The docker-compose files are set to pull environment variables from a specific .env file.
+docker-compose.yml = app/.env
+docker-compose.staging.yml = app/.env.staging
+
+### Local/Development Startup
+Start and build:
 ```
 docker-compose up -d --build
 ```
+
+Start:
+```
+docker-compose up -d
+```
+
+### Staging Start up
+Start and build:
+```
+docker-compose -f docker-compose.yml -f docker-compose.staging.yml up -d --build
+```
+
 
 ### Docker Notes/Details
 
