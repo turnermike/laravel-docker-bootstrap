@@ -1,0 +1,41 @@
+version: '2'
+services:
+  app:                              # php 7.1-apache
+    # image: 744241446859.dkr.ecr.us-east-1.amazonaws.com/laravel-docker-bootstrap-app:latest
+    build:
+      context: ./
+      dockerfile: app.dockerfile
+    container_name: laravelbootstrap-app
+    working_dir: /var/www
+    volumes:
+      - ../app:/var/www
+    ports:
+      # - 80:80
+      - 8081:80
+      # - 443:443
+    environment:
+      - "APACHE_LOG_DIR=/var/log/apache2"
+      # - "DB_PORT=3306"
+      # - "DB_HOST=db"
+      # - "DB_DATABASE=laravel_docker_bootstrap"
+      # - "DB_USERNAME=bootstrap"
+      # - "DB_PASSWORD=hEBg9W4RTXmg"
+    env_file:
+      - ../app/.env
+  db:                                                               # mysql 5.6
+    image: mysql:5.6
+    container_name: laravelbootstrap-mysql
+    volumes:
+      - ./.dbdata:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=laravel_docker_bootstrap"
+      - "MYSQL_USER=bootstrap"
+      - "MYSQL_PASSWORD=hEBg9W4RTXmg"
+      - "MYSQL_ROOT_PASSWORD=hpAhsfz2CqML"
+    expose:
+      - "3386"
+      - "3306"
+    ports:
+      - "3386:3306"                                                 # host port:container port
+volumes:
+  .dbdata:
