@@ -26,15 +26,15 @@ RUN mkdir /var/www/public
 
 # apache config - backup the original apache config in container and copy custom file
 RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf.orig
-COPY ./httpd/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+COPY ./apache-config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 # copy ssl certificate/key
-COPY ./httpd/server.crt /etc/apache2/ssl/server.crt
-COPY ./httpd/server.key /etc/apache2/ssl/server.key
+COPY ./apache-config/server.crt /etc/apache2/ssl/server.crt
+COPY ./apache-config/server.key /etc/apache2/ssl/server.key
 
 # apache ssl config - backup the original apache ssl config in the container and copy custom file
 RUN cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.orig
-COPY ./httpd/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+COPY ./apache-config/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 
 # enable ssl
 RUN a2enmod ssl
@@ -58,7 +58,7 @@ RUN apt-get install -y libmcrypt-dev libpng-dev libzip-dev \
     && pecl install imagick
 
 # copy php config
-COPY ./php/php.ini /usr/local/etc/php
+COPY ./php-config/php.ini /usr/local/etc/php
 
 
 # download/install composer

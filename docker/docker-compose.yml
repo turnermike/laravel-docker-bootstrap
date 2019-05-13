@@ -8,7 +8,7 @@ services:
     container_name: laravelbootstrap-app
     working_dir: /var/www
     volumes:
-      - ./app:/var/www
+      - ../app:/var/www
     ports:
       - 80:80
       # - 8081:80
@@ -25,7 +25,7 @@ services:
       # - "DB_USERNAME=bootstrap"
       # - "DB_PASSWORD=hEBg9W4RTXmg"
     env_file:
-      - ./app/.env
+      - ../app/.env
   db:                                                               # mysql 5.6
     image: mysql:5.6
     container_name: laravelbootstrap-mysql
@@ -34,7 +34,7 @@ services:
     environment:
       - "MYSQL_DATABASE=laravel_docker_bootstrap"
       - "MYSQL_USER=bootstrap"
-      - "MYSQL_PASSWORD=hEBg9W4RTXmg"
+      - "MYSQL_PASSWORD=BVLfc9HcdSHe"
       - "MYSQL_ROOT_PASSWORD=hpAhsfz2CqML"
     expose:
       - "3386"
