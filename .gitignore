@@ -1,7 +1,10 @@
 .DS_Store
 node_modules
 app/public/output
-.dbdata
+
+
+docker/.dbdata
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

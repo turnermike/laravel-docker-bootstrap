@@ -1,5 +1,13 @@
-FROM php:7.1-apache
-# uses debian:jessie
+FROM php:7.3.4-apache-stretch
+# image is using debian:stretch-slim
+# https://github.com/docker-library/php/blob/a5c895da277a71578af9561b0e282e6cb0764434/7.3/stretch/apache/Dockerfile
+
+# set default "working" directory
+WORKDIR /var/www
+
+# add server name to apache config, which is overwritten later with apache-config/000-default.conf
+# just to surpress a docker-compose warning
+RUN echo "ServerName laravel-docker-bootstrap.test" >> /etc/apache2/apache2.conf
 
 MAINTAINER Mike Turner <turner.mike@gmail.com>
 
@@ -8,9 +16,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # update package lists from their repositories
 RUN apt-get update
+RUN apt-get upgrade -y
 
 # tools
-RUN apt-get install -y --no-install-recommends git zip unzip nano nodejs build-essential apt-utils wget iputils-ping
+RUN apt-get install -y --no-install-recommends apt-utils git zip unzip nano nodejs build-essential wget iputils-ping yum openssh-client
 
 # create public dir (docker-compose gives an error if it does not previously exist)
 RUN mkdir /var/www/public
@@ -33,9 +42,6 @@ RUN a2enmod ssl
 # enable the custom ssl vhost
 RUN a2ensite default-ssl
 
-# reload apache
-# RUN service apache2 reload
-
 # restart apache
 RUN service apache2 restart
 
@@ -46,11 +52,10 @@ RUN a2enmod rewrite
 RUN apt-get update
 
 # install php modules
-RUN apt-get install -y libmcrypt-dev libpng-dev \
-    mysql-client libmagickwand-dev --no-install-recommends \
-    && pecl install imagick \
-    && docker-php-ext-enable imagick \
-    && docker-php-ext-install mcrypt mysqli pdo pdo_mysql mbstring gd
+RUN apt-get install -y libmcrypt-dev libpng-dev libzip-dev \
+    mysql-client mysql-server libmagickwand-dev --no-install-recommends \
+    && docker-php-ext-install mysqli pdo_mysql gd zip \
+    && pecl install imagick
 
 # copy php config
 COPY ./php/php.ini /usr/local/etc/php
@@ -59,18 +64,16 @@ COPY ./php/php.ini /usr/local/etc/php
 # download/install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# add a new user
-# RUN useradd -ms /bin/bash docker
-
-# switch to new user
-# USER docker
-
 # clean up
 RUN apt-get autoremove && apt-get clean
 
 # open ports
 EXPOSE 80
-#EXPOSE 443
+EXPOSE 443
+
+# set timezone
+ENV TZ=America/Toronto
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # restart apache
 RUN service apache2 restart

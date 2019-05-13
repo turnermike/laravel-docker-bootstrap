@@ -1,6 +1,6 @@
 version: '2'
 services:
-  app:                              # php 7.1-apache
+  app:                              # php:7.3.4-apache-stretch
     # image: 744241446859.dkr.ecr.us-east-1.amazonaws.com/laravel-docker-bootstrap-app:latest
     build:
       context: ./
@@ -10,11 +10,15 @@ services:
     volumes:
       - ./app:/var/www
     ports:
-      # - 80:80
-      - 8081:80
-      # - 443:443
+      - 80:80
+      # - 8081:80
+      - 443:443
     environment:
+      - "APACHE_RUN_USER www-data"
+      - "APACHE_RUN_GROUP www-data"
       - "APACHE_LOG_DIR=/var/log/apache2"
+      - "APACHE_LOCK_DIR=/var/lock/apache2"
+      - "APACHE_PID_FILE=/var/run/apache2.pid"
       # - "DB_PORT=3306"
       # - "DB_HOST=db"
       # - "DB_DATABASE=laravel_docker_bootstrap"
