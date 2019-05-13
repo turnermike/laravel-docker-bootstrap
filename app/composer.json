@@ -9,9 +9,16 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "aws/aws-sdk-php": "^3.93",
+        "bacon/bacon-qr-code": "^2.0",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "5.7.*",
-        "laravel/tinker": "^1.0"
+        "laravel/framework": "5.8.*",
+        "laravel/scout": "^7.1",
+        "laravel/tinker": "^1.0",
+        "lloricode/laravel-html-table": "^1.3",
+        "mcamara/laravel-localization": "^1.3",
+        "pragmarx/google2fa-laravel": "^1.0",
+        "teamtnt/laravel-scout-tntsearch-driver": "^7.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

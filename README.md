@@ -180,6 +180,18 @@ Use the following command to update the search index:
 
 
 
+# Upgrading Laravel Version For This Project
+These were the steps taken to update Laravel from 5.6 to 5.8:
+
+1. Backed up the original composer.json.
+2. Copied the coposer.json file from the Laravel Git repo.
+3. Removed composer.lock.
+4. Ran `composer install`.
+5. Ran `composer require <package/name>` for each required package listed in old composer.json.
+
+
+
+
 
 
 # Resources
