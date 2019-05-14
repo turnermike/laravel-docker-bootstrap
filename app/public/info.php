@@ -49,7 +49,7 @@ $password = $db_password;
 
 try {
     $dbh = new PDO($dsn, $user, $password);
-    
+
     $statement = $dbh->prepare("SELECT * FROM test");
     $statement->execute();
 

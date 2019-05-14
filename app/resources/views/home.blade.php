@@ -7,6 +7,8 @@
             <div class="panel panel-default">
                 <h1>{{ Lang::get('home.title') }}</h1>
 
+                <?php echo '"password" via bcrypt function: ' . bcrypt('password'); ?>
+
 
                 <div class="panel-body">
                     @if (session('status'))
