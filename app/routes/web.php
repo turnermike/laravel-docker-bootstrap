@@ -40,9 +40,9 @@ Route::group(
         // 2fa - registration
         Route::get('/complete-registration', 'Auth\RegisterController@completeRegistration');
         // 2fa - login
-        Route::post('/2fa', function () {
-            return redirect(URL()->previous());
-        })->name('2fa')->middleware('2fa');
+        // Route::post('/2fa', function () {
+        //     return redirect(URL()->previous());
+        // })->name('2fa')->middleware('2fa');
         // 2fa - successful auth redirects to /2fa, need to add a route for get requests
         Route::get('/2fa',              ['as' => 'dashboard',           'uses' => 'DashboardController@dashboard']);
         // 2fa - reauthentication
