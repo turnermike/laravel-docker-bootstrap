@@ -49,7 +49,8 @@ Route::group(
         Route::get('/re-authentication', ['as' => 're-authentication',   'uses' => 'DashboardController@reauthenticate']);
 
         // secure dashboard
-        Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'DashboardController@dashboard']);
+        // Route::get('/dashboard',        ['middleware' => ['auth'], 'uses' => 'DashboardController@dashboard']);
+        Route::get('/dashboard',        ['uses' => 'DashboardController@dashboard']);
 
         // send email
         Route::get('/sendTestMessage', 'EmailController@sendTestMessage');
